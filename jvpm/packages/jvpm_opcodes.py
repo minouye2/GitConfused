@@ -85,6 +85,11 @@ class HeaderClass():
         return super_class
 
     def get_interfaces_count(self):
+        interface_count = class_file_item_reader_hex()
+        self.integer_interface_count = (self.data[self.reader_location]) + (self.data[self.reader_location + self.add_one_byte])
+        return interface_count
+
+    def get_interfaces_count(self):
         interface_count = [format((self.data[self.reader_location]) , "02x")]
         interface_count.append(format((self.data[self.reader_location + self.add_one_byte]), "02x"))
         self.integer_interface_count = (self.data[self.reader_location]) + (self.data[self.reader_location + self.add_one_byte])
@@ -177,7 +182,7 @@ class HeaderClass():
         x = 3
         atribute_reader = read_attribute.ReadAttribute()
 
-    def class_file_item_reader_hex():
+    def class_file_item_reader_in_hex():
         class_file_item = [format((self.data[self.reader_location]) , "02x")]
         class_file_item.append(format((self.data[self.reader_location + self.add_one_byte]), "02x"))
         self.reader_location += 2
