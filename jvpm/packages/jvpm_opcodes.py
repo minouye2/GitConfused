@@ -73,19 +73,19 @@ class HeaderClass():
         return constants_pool
 
     def get_access_flags(self):
-        access_flag = class_file_item_reader_hex()
+        access_flag = class_file_item_reader_in_hex()
         return access_flag
 
     def get_this_class(self):
-        this_class = class_file_item_reader_hex()
+        this_class = class_file_item_reader_in_hex()
         return this_class
 
     def get_super_class(self):
-        super_class = class_file_item_reader_hex()
+        super_class = class_file_item_reader_in_hex()
         return super_class
 
     def get_interfaces_count(self):
-        interface_count = class_file_item_reader_hex()
+        interface_count = class_file_item_reader_in_hex()
         self.integer_interface_count = class_file_item_count_to_int()
         return interface_count
 
@@ -112,7 +112,7 @@ class HeaderClass():
                 field.clear()
 
     def get_methods_count(self):
-        method_count = class_file_item_reader_hex()
+        method_count = class_file_item_reader_in_hex()
         self.integer_method_count = class_file_item_count_to_int()
         return method_count
 
@@ -161,7 +161,7 @@ class HeaderClass():
         return self.op_codes
 
     def get_attribute_count(self):
-        attribute_count = class_file_item_reader_hex()
+        attribute_count = class_file_item_reader_in_hex()
         self.integer_attribute_count = class_file_item_count_to_int()
         return attribute_count
 
