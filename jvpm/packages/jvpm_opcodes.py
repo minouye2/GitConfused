@@ -72,26 +72,16 @@ class HeaderClass():
 
         return constants_pool
 
-
-
     def get_access_flags(self):
-        access_flag_position = self.reader_location
-        access_flag = [format((self.data[access_flag_position]) , "02x")]
-        access_flag.append(format((self.data[access_flag_position + self.add_one_byte]), "02x"))
-        self.reader_location += 2
-
+        access_flag = class_file_item_reader_hex()
         return access_flag
 
     def get_this_class(self):
-        this_class = [format((self.data[self.reader_location]) , "02x")]
-        this_class.append(format((self.data[self.reader_location + self.add_one_byte]), "02x"))
-        self.reader_location += 2
+        this_class = class_file_item_reader_hex()
         return this_class
 
     def get_super_class(self):
-        super_class = [format((self.data[self.reader_location]) , "02x")]
-        super_class.append(format((self.data[self.reader_location + self.add_one_byte]), "02x"))
-        self.reader_location += 2
+        super_class = class_file_item_reader_hex()
         return super_class
 
     def get_interfaces_count(self):
@@ -105,7 +95,6 @@ class HeaderClass():
         if (self.integer_interface_count == 0):
             print ("interface table empty")
 
-
     def get_field_count(self):
         field_count = [format((self.data[self.reader_location]) , "02x")]
         field_count.append(format((self.data[self.reader_location + self.add_one_byte]), "02x"))
@@ -113,7 +102,6 @@ class HeaderClass():
         self.reader_location += 2
         self.field_count = field_count
         return field_count
-
 
     def get_field(self):
         dictionary_index  = 0
@@ -126,11 +114,6 @@ class HeaderClass():
             for i in range(self.field_count):
                 field = []
                 field.clear()
-
-
-
-
-
 
     def get_methods_count(self):
         method_count = [format((self.data[self.reader_location]) , "02x")]
@@ -183,7 +166,6 @@ class HeaderClass():
             method_index +=1
         return self.op_codes
 
-
     def get_attribute_count(self):
         attribute_count = [format((self.data[self.reader_location]) , "02x")]
         attribute_count.append(format((self.data[self.reader_location + self.add_one_byte]), "02x"))
@@ -195,7 +177,11 @@ class HeaderClass():
         x = 3
         atribute_reader = read_attribute.ReadAttribute()
 
-
+    def class_file_item_reader_hex():
+        class_file_item = [format((self.data[self.reader_location]) , "02x")]
+        class_file_item.append(format((self.data[self.reader_location + self.add_one_byte]), "02x"))
+        self.reader_location += 2
+        return class_file_item
 
 
 
