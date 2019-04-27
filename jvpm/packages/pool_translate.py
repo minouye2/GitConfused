@@ -17,12 +17,8 @@ class PoolTranslate:
     def __init__(self, constant_pool, skips, name="testSaveVar.class"):
 
         self.name = name
-        #jvpm_opcodes_obj = jvpm_opcodes.HeaderClass(name=name)
-        #self.pulled_constant_pool = defaultdict(list)
         self.pulled_constant_pool = constant_pool
 
-
-        #self.pulled_constant_pool = jvpm_opcodes_obj.get_const_pool()
         self.byte_list_length = len(self.pulled_constant_pool.keys())
         self.key_list = list(self.pulled_constant_pool.keys())
         self.translated_pool = []
@@ -31,7 +27,6 @@ class PoolTranslate:
         self.current_pool_index = 0
         self.counter = 0
         self.pool_list_index = 0
-        #self.skips_in_pool = jvpm_opcodes_obj.skips_in_constant_pool
         self.skips_in_pool = skips
 
         self.constant_pool_length = len(self.pulled_constant_pool)
@@ -58,10 +53,6 @@ class PoolTranslate:
         hex_full = ""
         for i in range(len(sub_list)):
             hex_full += sub_list[i]
-        #print(hex_full,"Printing hex_full")
-
-        #print("Integer  4 bytes")
-        # print(sub_list)
 
     def tag_float(self, sub_list):  # 04
         hex_string = ""
@@ -79,11 +70,8 @@ class PoolTranslate:
         dec_long = int(string_hex,16)
         return dec_long
 
-        # print(sub_list)
-
     def tag_double(self, sub_list):  # 6
         print("Double    8 bytes")
-        # print(sub_list)
 
     def class_reference(self, sub_list):  # 7
 
@@ -107,8 +95,6 @@ class PoolTranslate:
                 complete_string = pulled_string
 
         return complete_string
-
-        # returned_string = PoolTranslater.method_dict(self,)
 
     def string_reference(self, sub_list):  # 8
         index = 0
@@ -256,8 +242,6 @@ class PoolTranslate:
         current_list_length = len(current_list)
         sub_list = []
         tag_byte = current_list[0]
-        #print(current_list, "   current list")
-        #print(tag_byte, "   current list")
 
         j = 1
         while j < current_list_length:

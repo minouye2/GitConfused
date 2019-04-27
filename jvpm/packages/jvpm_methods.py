@@ -3,7 +3,6 @@ from collections import deque
 import numpy
 from .stack import Stack
 from . import jvpm_opcodes, pool_translate
-# pylint: disable=R0201, R0904
 
 # ****************************************************************************************
 
@@ -14,12 +13,9 @@ class OpCodeMethods():
     """CLass of methods that are called from the CP."""
     def __init__(self):
         """opcode_methods"""
-        #self.S = Stack()
-        #self.VARIABLES = [0]
 
     def aload_0(self,opcode,constantpool,argument):
         """(2a)Load a reference to the stack."""
-        # forcing it to work by using iconst_0.
         self.iconst_0(opcode,constantpool,argument)
 
     def aload_1(self,opcode,constantpool,argument):
@@ -47,10 +43,7 @@ class OpCodeMethods():
         """gets method from constant pool and calls it."""
         #constant = jvpm_opcodes.INVOKEVIRTUAL_CONST[0]
         #method = pool_translate.methodrefs[int(jvpm_opcodes.INVOKEVIRTUAL_CONST.popleft())]
-
         method = constantpool[location]
-
-        #print(method, "***********method ***************")
         self.token_dict(method,location, constantpool)
 
 
@@ -116,19 +109,16 @@ class OpCodeMethods():
         """load an int value from local array variable[1]."""
         pushing1 = VARIABLES[1]
         S.push(pushing1)
-        # print("ran iload_1")
 
     def iload_2(self,opcode,constantpool,argument):
         """load an int value from local array variable[2]."""
         pushing2 = VARIABLES[2]
         S.push(pushing2)
-        # print("ran iload_2")
 
     def iload_3(self,opcode,constantpool,argument):
         """load an int value from local array variable[3]."""
         pushing3 = VARIABLES[3]
         S.push(pushing3)
-        # print("ran iload_3")
 
     def imul(self,opcode,constantpool,argument):
         """multiply two integers."""
@@ -297,8 +287,6 @@ class OpCodeMethods():
         method = OpCodeMethods.dictionary.get(argument, "invalid")
         if type(method) == str:
             method = OpCodeMethods.dictionary.get(method)
-        #print(method, "this is the method from the dictionary", argument, type(method))
-
         return method(self,opcode,constantpool,argument)
 
 # ****************************************************************************************

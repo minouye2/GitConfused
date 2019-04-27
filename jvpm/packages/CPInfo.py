@@ -8,7 +8,6 @@ class ConstInfo:
         self.pool = []
 
     def read(self, bits):
-        #pool = []
         tag = bits.read('hex:8')
         self.pool.append(tag)
 

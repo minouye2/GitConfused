@@ -58,7 +58,6 @@ class ReadAttribute():
 
 
         ############## exception table
-        #if exception_table_length > 0:
         for x in range(exception_table_length):
             attribute_table.append(format((data[reader_location]), "02x"))  # start pc
             attribute_table.append(format((data[reader_location + add_one_byte]), "02x"))

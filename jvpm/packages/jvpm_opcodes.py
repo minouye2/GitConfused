@@ -180,8 +180,6 @@ class OpCodes():
     """Parse Opcodes into an array from the .class file, search the external dictionary of
     opcodes, and implement the methods using the external dictionary of methods."""
     def __init__(self, opcode, constantpool):
-        # Eventually we will acquire these values from the CP, but they are hardcoded for now.
-        #self.opcodes = ['2a', '59', '4c', '2b', 'b6', '3d', 'b6', '3e', '1c', '1d', '60', 'b6']
         self.constantpool = constantpool
         self.opcodes = opcode
 
@@ -196,24 +194,16 @@ class OpCodes():
 
     def dict_search(self):
         """dictionary search method."""
-        #print(self.opcodes, " = opcodes        ", self.constantpool, " = const pool")
         jvpm_methods_object = jvpm_methods.OpCodeMethods()
 
         i = 0
         while i < len(self.opcodes):
-            #print(self.opcodes[i], " &&&&&&&&&& op code i &&&&&&&&&")
-        # opcode in self.opcodes:
             opcall = jvpm_dict.get_opcode(self.opcodes[i])
-            #print(opcall, " = translated opcode, not invoke")
             if opcall == "invokevirtual":
                 op_location = int(self.opcodes[i+2])
                 opcall = self.constantpool[op_location]
-                #print(op_location, "oplocation +2", type(op_location))
-                #jvpm_methods.OpCodeMethods().token_dict(opcall,op_location,self.constantpool)
-                #print (opcall, " *********op call ****** after invoke")
                 i += 2
 
             if opcall != "Byte code not found!":
                 jvpm_methods_object.token_dict(opcall, self.opcodes, self.constantpool,)
-                #jvpm_methods.OpCodeMethods().token_dict(opcall,self.opcodes,self.constantpool)
             i += 1
