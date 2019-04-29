@@ -5,8 +5,8 @@ from collections import deque
 import numpy
 from . import jvpm_opcodes, pool_methods
 SUPER_INDEX = 0
-methodrefs = []
-cp_strings = []
+METHODREFS = []
+CP_STRINGS = []
 
 # pylint: disable = C0111, R0201
 
