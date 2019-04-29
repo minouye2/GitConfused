@@ -1,6 +1,6 @@
 """Imports"""
 from collections import defaultdict
-# pylint: disable=C0111
+# pylint: disable=C0111,R0201
 
 # ****************************************************************************************
 
