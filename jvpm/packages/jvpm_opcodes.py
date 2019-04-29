@@ -1,10 +1,7 @@
 """Read bit stream."""
 from collections import defaultdict
 from collections import deque
-
 from bitstring import ConstBitStream
-
-
 from . import jvpm_dict, jvpm_methods, read_attribute, CPInfo  # import external opcode dictionary
 
 # A deque of invokevirtual constants used for method calls from AddToo.class.
@@ -67,7 +64,6 @@ class HeaderClass():
             i += 1
         self.reader_location = self.bits.bytepos
         self.constant_pool = constants_pool
-
         return constants_pool
 
     def get_access_flags(self):
@@ -100,7 +96,6 @@ class HeaderClass():
     def get_field(self):
         if self.integer_field_count == 0:
             print("field table empty")
-
         else:
             for i in self.field_count:
                 field = []
@@ -172,9 +167,6 @@ class HeaderClass():
         self.reader_location += 2
         return class_file_item
 
-
-
-
 class OpCodes():
 
     """Parse Opcodes into an array from the .class file, search the external dictionary of
@@ -182,15 +174,6 @@ class OpCodes():
     def __init__(self, opcode, constantpool):
         self.constantpool = constantpool
         self.opcodes = opcode
-
-        """
-
-
-        METHOD GOES HERE TO FIND OPCODES FROM ANY .CLASS FILE AND SAVE TO self.opcodes LIST.
-
-
-
-        """
 
     def dict_search(self):
         """dictionary search method."""
