@@ -46,7 +46,6 @@ class OpCodeMethods():
         method = constantpool[location]
         self.token_dict(method,location, constantpool)
 
-
     def next_int(self,opcode,constantpool,argument):
         """receive input from the keyboard."""
         var1 = numpy.int32(int(input()))
@@ -229,7 +228,6 @@ class OpCodeMethods():
 
     def invalid(self,opcode,constantpool,argument):
         print( argument, " method call is invalid")
-
 
 # ****************************************************************************************
 
