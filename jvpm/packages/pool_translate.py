@@ -4,9 +4,9 @@ import binascii
 from collections import deque
 import numpy
 from . import jvpm_opcodes, pool_methods
-SUPER_INDEX = 0
-METHODREFS = []
-CP_STRINGS = []
+super_index = 0
+methodrefs = []
+cp_strings = []
 
 # pylint: disable = C0111, R0201
 
