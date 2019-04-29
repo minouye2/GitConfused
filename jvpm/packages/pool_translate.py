@@ -1,9 +1,9 @@
 from collections import defaultdict
 import struct
 import binascii
+from collections import deque
 import numpy
 from . import jvpm_opcodes, pool_methods
-from collections import deque
 super_index = 0
 methodrefs = []
 cp_strings = []
