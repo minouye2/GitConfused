@@ -134,8 +134,8 @@ class HeaderClass():
                                                            "02x"))
             self.methods_table[method_index].append(format((self.data[self.reader_location +
                                                                       self.add_one_byte]), "02x"))
-            attribute_count = (self.data[self.reader_location]) +
-                              (self.data[self.reader_location + self.add_one_byte])
+            attribute_count = (self.data[self.reader_location]) + (self.data[self.reader_location +
+                                                                             self.add_one_byte])
 
             self.reader_location += 2
             attribute_index = 0
