@@ -11,7 +11,6 @@ INVOKEVIRTUAL_CONST = deque(["5", "5", "7"])
 # ****************************************************************************************
 
 class HeaderClass():
-
     """Class that parses the header data from .class file and assigns values to variables."""
     def __init__(self, name):
         self.name = name
