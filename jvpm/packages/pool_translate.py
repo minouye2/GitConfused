@@ -1,7 +1,7 @@
 from collections import defaultdict
-import numpy
 import struct
 import binascii
+import numpy
 from . import jvpm_opcodes, pool_methods
 from collections import deque
 super_index = 0
