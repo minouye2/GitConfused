@@ -1,267 +1,220 @@
 """Read bit stream."""
 from collections import defaultdict
-from pip._vendor.distlib.compat import raw_input
-<<<<<<< HEAD:jvpm/jvpm_opcodes.py
-import jvpm_dict    # import external opcode dictionary
-from collections import defaultdict
-import jvpm_methods
-from stack import Stack
-#from jvpm_methods import OpCodeMethods # import external method dictionary
+from collections import deque
 
-import pool_translate
-import pool_methods
+from bitstring import ConstBitStream
 
-# **************************************************************************************************
 
-class HeaderClass():
-    
-    """Class that parses the header and CP data from .class file and assigns values to variables."""
-    def __init__(self, name = "test.class"):
-=======
+from . import jvpm_dict, jvpm_methods, read_attribute, CPInfo  # import external opcode dictionary
 
-from . import jvpm_dict, jvpm_methods  # import external opcode dictionary
+# A deque of invokevirtual constants used for method calls from AddToo.class.
+#     Eventually wee will acquire these values from the CP, but they are hardcoded for now.
+INVOKEVIRTUAL_CONST = deque(["5", "5", "7"])
+
+# ****************************************************************************************
 
 class HeaderClass():
+
     """Class that parses the header data from .class file and assigns values to variables."""
-   #name = raw_input('Type the name of the file with class extension --')
-    def __init__(self, name = "jvpm/javafiles/test.class"):
-        #self.name = "test.class"#raw_input('Type the name of the file with class extension --')
->>>>>>> efe2fe216147da0e585c21df952cf5d2af792f4d:jvpm/packages/jvpm_opcodes.py
+    def __init__(self, name="jvpm/javafiles/test.class"):
+        self.name = name
+        self.bits = ConstBitStream(filename=name)
+        add_one_byte = 1
+        constant_pool_byte_size = 0
         with open(name, 'rb') as binary_file:
             self.data = binary_file.read()
             self.temp_2 = defaultdict(list)
+            self.constant_pool = defaultdict(list)
+            self.constant_pool_byte_size = 0
+            self.constant_pool_total_size = 0
+            self.constant_pool_indexes = []
+            self.skips_in_constant_pool = 0
+            self.add_one_byte = 1
+            self.reader_location = 0
+            self.integer_interface_count = 0
+            self.integer_field_count = 0
+            self.integer_method_count = 0
+            self.methods_table =defaultdict(list)
+            self.op_codes = []
+            self.integer_attribute_count = 0
+            self.field_count = 0
+            self.field_dictionary = defaultdict(list)
 
     def get_magic(self):
-        magic = ""
-        for i in range(4):
-            magic += format(self.data[i], '02X')
-        print("\nMagic: ", magic)
+        magic = self.bits.read('hex:32')
         return magic
 
     def get_minor(self):
-        print("Minor: ", self.data[4] + self.data[5])
-        return self.data[4] + self.data[5]
+        return self.bits.read('hex:16')
 
     def get_major(self):
-        print("Major: ", self.data[6] + self.data[7])
-        return self.data[6] + self.data[7]
-    
+        return self.bits.read('hex:16')
+
     def get_const_pool_count(self):
-        return self.data[8] + self.data[9]
+        return self.bits.read('uint:16')
 
     def get_const_pool(self):
-        temp = defaultdict(list)
-        position = 0
-        count = self.get_const_pool_count() - 1
-        for i in range(count):
-            # Pulling class info
-            if self.data[10 + i + position] == 7:
-                temp[i].append(format(self.data[10 + i + position], '02x'))
-                temp[i].append(format(self.data[11 + i + position] + self.data[12 + i + position], '02x'))
-                position += 2
-            # Field Ref
-            elif self.data[10 + i + position] == 9:
-                temp[i].append(format(self.data[10 + i + position], '02x'))
-                temp[i].append(format(self.data[11 + i + position] + self.data[12 + i + position], '02x'))
-                temp[i].append(format(self.data[13 + i + position] + self.data[14 + i + position], '02x'))
-                position += 4
-            # Method Ref
-            elif self.data[10 + i + position] == 10:
-                temp[i].append(format(self.data[10 + i + position], '02x'))
-                temp[i].append(format(self.data[11 + i + position] + self.data[12 + i + position], '02x'))
-                temp[i].append(format(self.data[13 + i + position] + self.data[14 + i + position], '02x'))
-                position += 4
-            # Interface Method Ref
-            elif self.data[10 + i + position] == 11:
-                temp[i].append(format(self.data[10 + i + position], '02x'))
-                temp[i].append(format(self.data[11 + i + position] + self.data[12 + i + position], '02x'))
-                temp[i].append(format(self.data[13 + i + position] + self.data[14 + i + position], '02x'))
-                position += 4
-            # String
-            elif self.data[10 + i + position] == 8:
-                temp[i].append(format(self.data[10 + i + position], '02x'))
-                temp[i].append(format(self.data[11 + i + position] + self.data[12 + i + position], '02x'))
-                position += 4
-            # Integer
-            elif self.data[10 + i + position] == 3:
-                temp[i].append(format(self.data[10 + i + position], '02x'))
-                temp[i].append(format(self.data[11 + i + position] + self.data[12 + i + position] +
-                    self.data[13 + i + position] + self.data[14 + i + position], '02x'))
-                position += 4
-            # Float
-            elif self.data[10 + i + position] == 4:
-                temp[i].append(format(self.data[10 + i + position], '02x'))
-                temp[i].append(format(self.data[11 + i + position] + self.data[12 + i + position] +
-                    self.data[13 + i + position] + self.data[14 + i + position], '02x'))
-                position += 4
-            # Long
-            elif self.data[10 + i + position] == 5:
-                temp[i].append(format(self.data[10 + i + position], '02x'))
-                temp[i].append(format(self.data[11 + i + position] + self.data[12 + i + position] +
-                    self.data[13 + i + position] + self.data[14 + i + position], '02x'))
-                temp[i].append(format(self.data[15 + i + position] + self.data[16 + i + position] +
-                    self.data[17 + i + position] + self.data[18 + i + position], '02x'))
-                position += 8
-            # Double
-            elif self.data[10 + i + position] == 6:
-                temp[i].append(format(self.data[10 + i + position], '02x'))
-                temp[i].append(format(self.data[11 + i + position] + self.data[12 + i + position] +
-                    self.data[13 + i + position] + self.data[14 + i + position], '02x'))
-                temp[i].append(format(self.data[15 + i + position] + self.data[16 + i + position] +
-                    self.data[17 + i + position] + self.data[18 + i + position], '02x'))
-                position += 8
-            # Name and Type
-            elif self.data[10 + i + position] == 12:
-                temp[i].append(format(self.data[10 + i + position], '02x'))
-                temp[i].append(format(self.data[11 + i + position] + self.data[12 + i + position], '02x'))
-                temp[i].append(format(self.data[13 + i + position] + self.data[14 + i + position], '02x'))
-                position += 4
-            # Utf_8
-            elif self.data[10 + i + position] == 1:
-                temp[i].append(format(self.data[10 + i + position], '02x'))
-                temp[i].append(format(self.data[11 + i + position] + self.data[12 + i + position], '02x'))
-                for f in range (self.data[11 + i + position] + self.data[12 + i + position]):
-                    temp[i].append(format(self.data[13 + i + position + f], '02x'))
-                position += (self.data[11 + i + position] + self.data[12 + i + position])
-<<<<<<< HEAD:jvpm/jvpm_opcodes.py
-                position += 2    
-=======
-                position += 2
+        constants_pool = defaultdict(list)
+        constants_pool[0].append("base")
+        const_pool_count = self.get_const_pool_count()
+        const_pool_count -= 1
+        i = 1
+        while i <= const_pool_count:
+            constant = CPInfo.ConstInfo().read(self.bits)
+            constants_pool[i]=(constant)
+            if constant[0] == "06" or constant[0] == "05":
+                self.skips_in_constant_pool += 1
+                i += 1
 
->>>>>>> efe2fe216147da0e585c21df952cf5d2af792f4d:jvpm/packages/jvpm_opcodes.py
-            # Method Handle
-            elif self.data[10 + i + position] == 15:
-                temp[i].append(format(self.data[10 + i + position], '02x'))
-                temp[i].append(format(self.data[11 + i + position], '02x'))
-                temp[i].append(format(self.data[12 + i + position] + self.data[13 + i + position], '02x'))
-                position += 3
-            # Method Type
-            elif self.data[10 + i + position] == 16:
-                temp[i].append(format(self.data[10 + i + position], '02x'))
-                temp[i].append(format(self.data[11 + i + position] + self.data[12 + i + position], '02x'))
-                position += 2
-            # Invoke Dynamic
-            elif self.data[10 + i + position] == 18:
-                temp[i].append(format(self.data[10 + i + position], '02x'))
-                temp[i].append(format(self.data[11 + i + position] + self.data[12 + i + position], '02x'))
-                temp[i].append(format(self.data[13 + i + position] + self.data[14 + i + position], '02x'))
-                position += 4
-        self.temp_2 = temp
-        return temp
+            i += 1
+        self.reader_location = self.bits.bytepos
+        self.constant_pool = constants_pool
 
-# **************************************************************************************************
+        return constants_pool
+
+
+
+    def get_access_flags(self):
+        access_flag = self.class_file_item_reader_in_hex()
+        return access_flag
+
+    def get_this_class(self):
+        this_class = self.class_file_item_reader_in_hex()
+        return this_class
+
+    def get_super_class(self):
+        super_class = self.class_file_item_reader_in_hex()
+        return super_class
+
+    def get_interfaces_count(self):
+        self.integer_interface_count = self.class_file_item_count_to_int()
+        interface_count = self.class_file_item_reader_in_hex()
+        return interface_count
+
+    def get_interface(self):
+        if (self.integer_interface_count == 0):
+            print ("interface table empty")
+
+    def get_field_count(self):
+        self.integer_field_count = self.class_file_item_count_to_int()
+        field_count = self.class_file_item_reader_in_hex()
+        self.field_count = field_count
+        return field_count
+
+    def get_field(self):
+        dictionary_index = 0
+
+        if (self.integer_field_count == 0):
+            print("field table empty")
+
+        else:
+            for i in range(self.field_count):
+                field = []
+                field.clear()
+
+    def get_methods_count(self):
+        self.integer_method_count = self.class_file_item_count_to_int()
+        method_count = self.class_file_item_reader_in_hex()
+        return method_count
+
+    def get_methods(self, pool):
+        if (self.integer_method_count == 0):
+            print("method table empty")
+
+        method_index = 0
+        while method_index <  self.integer_method_count:
+            ################# access flags
+            self.methods_table[method_index].append(format((self.data[self.reader_location]), "02x"))
+            self.methods_table[method_index].append(format((self.data[self.reader_location + self.add_one_byte]), "02x"))
+            self.reader_location += 2
+            ################### name index
+            self.methods_table[method_index].append(format((self.data[self.reader_location]), "02x"))
+            self.methods_table[method_index].append(format((self.data[self.reader_location + self.add_one_byte]), "02x"))
+            self.reader_location += 2
+            ################# discriptor index
+            self.methods_table[method_index].append(format((self.data[self.reader_location]), "02x"))
+            self.methods_table[method_index].append(format((self.data[self.reader_location + self.add_one_byte]), "02x"))
+            self.reader_location += 2
+            ################## attribute count
+            self.methods_table[method_index].append(format((self.data[self.reader_location]), "02x"))
+            self.methods_table[method_index].append(format((self.data[self.reader_location + self.add_one_byte]), "02x"))
+            attribute_count = (self.data[self.reader_location]) + (self.data[self.reader_location + self.add_one_byte])
+
+            self.reader_location += 2
+            attribute_index = 0
+
+            while attribute_index < attribute_count:
+                tag_location = (self.data[self.reader_location]) + (self.data[self.reader_location + self.add_one_byte])
+                tag = pool[tag_location]
+                atribute_reader = read_attribute.ReadAttribute()
+                returned_vals = atribute_reader.get_attribute(tag, self.methods_table, self.reader_location, self.data, self.op_codes, method_index, pool)
+
+                if (isinstance(returned_vals, int)):
+                    self.reader_location = returned_vals
+                else:
+                    self.reader_location = int(returned_vals[0])
+                    self.op_codes = returned_vals[1]
+
+                attribute_index += 1
+
+
+            method_index +=1
+        return self.op_codes
+
+    def class_file_item_count_to_int(self):
+        count_as_int = (self.data[self.reader_location]) + (self.data[self.reader_location + self.add_one_byte])
+        return count_as_int
+
+    def class_file_item_reader_in_hex(self):
+        class_file_item = [format((self.data[self.reader_location]) , "02x")]
+        class_file_item.append(format((self.data[self.reader_location + self.add_one_byte]), "02x"))
+        self.reader_location += 2
+        return class_file_item
+
+
+
+
+
 
 class OpCodes():
 
     """Parse Opcodes into an array from the .class file, search the external dictionary of
-    opcodes, and implement the methods using the external dictionary of methods"""
-    def __init__(self):
-        self.opcodes = ['04', '3c', '05', '3d', '1b', '1c', '60', '1c', '68', '1c', '6c', '1c',
-                        '64', '3e']
+    opcodes, and implement the methods using the external dictionary of methods."""
+    def __init__(self, opcode, constantpool):
+        # Eventually we will acquire these values from the CP, but they are hardcoded for now.
+        #self.opcodes = ['2a', '59', '4c', '2b', 'b6', '3d', 'b6', '3e', '1c', '1d', '60', 'b6']
+        self.constantpool = constantpool
+        self.opcodes = opcode
+
         """
 
-        METHOD GOES HERE TO FIND METHOD-OPCODES FROM A .CLASS FILE AND SAVE TO self.opcodes LIST.
+
+        METHOD GOES HERE TO FIND OPCODES FROM ANY .CLASS FILE AND SAVE TO self.opcodes LIST.
+
+
 
         """
-<<<<<<< HEAD:jvpm/jvpm_opcodes.py
-        
-    # I duplicated this method from the commented out method below it
-    # because it wouldn't work to find the opcodes, now it works. If you need the 
-    # other one, just comment out this one. Thx. 4-3-19
-=======
 
->>>>>>> efe2fe216147da0e585c21df952cf5d2af792f4d:jvpm/packages/jvpm_opcodes.py
     def dict_search(self):
-      print(self.opcodes)
-      index = 0
-      while index < len(self.opcodes):
-          opcall = jvpm_dict.get_opcode(self.opcodes[index])
-          print(opcall) # just to see what opcall is passed through
-          jvpm_methods.OpCodeMethods().token_dict(opcall)
-          index += 1
-<<<<<<< HEAD:jvpm/jvpm_opcodes.py
-      print()  
+        """dictionary search method."""
+        #print(self.opcodes, " = opcodes        ", self.constantpool, " = const pool")
+        jvpm_methods_object = jvpm_methods.OpCodeMethods()
 
-#     def dict_search(self, jvMethodsIn):
-#         print(self.opcodes)
-#         index = 0
+        i = 0
+        while i < len(self.opcodes):
+            #print(self.opcodes[i], " &&&&&&&&&& op code i &&&&&&&&&")
+        # opcode in self.opcodes:
+            opcall = jvpm_dict.get_opcode(self.opcodes[i])
+            #print(opcall, " = translated opcode, not invoke")
+            if opcall == "invokevirtual":
+                op_location = int(self.opcodes[i+2])
+                opcall = self.constantpool[op_location]
+                #print(op_location, "oplocation +2", type(op_location))
+                #jvpm_methods.OpCodeMethods().token_dict(opcall,op_location,self.constantpool)
+                #print (opcall, " *********op call ****** after invoke")
+                i += 2
 
-#         while index < len(self.opcodes):
-#             opcall = jvpm_dict.get_opcode(self.opcodes[index])
-
-#             print (opcall) # just to see what opcall is passed through
-
-#             jvMethodsIn.token_dict(opcall)
-#             index += 1
-#         print()
-
-# **************************************************************************************************
-
-if '__main__' == __name__:                  #pragma: no cover
-
-    # **********************************************************************************************
-
-    print('\n1) ___Parse, pull, and assign Header bytecodes:___')
-    H = HeaderClass()               #pragma: no cover
-    H.get_magic()                   #pragma: no cover
-    H.get_minor()                   #pragma: no cover
-    H.get_major()                   #pragma: no cover
-    print("Constant Pool Count: " + str(H.get_const_pool_count() - 1))
-
-    # **********************************************************************************************
-
-    print('\n2) ___Parse, pull, and assign method bytecodes to an array, search imported '      
-          '\n  opcode dictionary for bytecode and pull opcode. If found, send opcode to'        
-          '\n  imported method dictionary to implement the method:___\n')                         
-
-    O = OpCodes()         
-    O.dict_search()
-    
-    # **********************************************************************************************
-    
-    print('\n3) ___Retrieve Constant Pool from .class, translate, and print to console:___')                       
-
-    # print(H.get_const_pool())
-    
-    P = pool_translate.PoolTranslate()                 #pragma: no cover
-    N = P.translate()                   #pragma: no cover
-    X = pool_methods.TagTranslate()#pragma: no cover
-    print()                             #pragma: no cover
-    print(N)                            #pragma: no cover
-    print()                             #pragma: no cover
-    for key in N:                       #pragma: no cover
-        i = 1                            #pragma: no cover
-        if (N[key][0]) == "01":         #pragma: no cover
-            print(key, " ", X.token_dict(N[key][0]), "\t\t\t", N[key][len(N[key]) - 1]) 
-        else:      
-            print(key, " ", X.token_dict(N[key][0]), "\t\t\t", N[key])
-    
-    # **********************************************************************************************
-    
-    print('\n4) ___Print Hello World!:___\n')
-    
-    
-    
-    # **********************************************************************************************
-    
-    print('\n5) ___Take input from the keyboard and add 2 numbers:___\n')
-    
-    
-    
-    # **********************************************************************************************
-=======
-      print()
-
-    # def dict_search(self, jvMethodsIn):
-    #     print(self.opcodes)
-    #     index = 0
-    #
-    #     while index < len(self.opcodes):
-    #         opcall = jvpm_dict.get_opcode(self.opcodes[index])
-    # 
-    #         print (opcall) # just to see what opcall is passed through
-    #
-    #         jvMethodsIn.token_dict(opcall)
-    #         index += 1
-    #     print()
->>>>>>> efe2fe216147da0e585c21df952cf5d2af792f4d:jvpm/packages/jvpm_opcodes.py
+            if opcall != "Byte code not found!":
+                jvpm_methods_object.token_dict(opcall,self.opcodes,self.constantpool,)
+                #jvpm_methods.OpCodeMethods().token_dict(opcall,self.opcodes,self.constantpool)
+            i += 1

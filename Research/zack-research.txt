@@ -240,6 +240,8 @@ having replicated code every-time that function is needed.
 
 04/02/2019
 
+https://docs.python-guide.org/writing/structure/
+
 -structure of a python program
 
 -API design is essential for a healthy development cycle.
@@ -247,3 +249,37 @@ having replicated code every-time that function is needed.
 -how data flows through the project?
 
 -import from the same folder with from .(module name) import (classname)
+
+04/05/2019
+
+-dictionaries
+
+https://www.youtube.com/watch?v=ZEZdys-fHDw
+
+04/17/2019
+
+The standard defines:
+
+-arithmetic formats: sets of binary and decimal floating-point data, which consist
+of finite numbers (including signed zeros and subnormal numbers), infinities, and
+special "not a number" values (NaNs)
+interchange formats: encodings (bit strings) that may be used to exchange
+floating-point data in an efficient and compact form
+-rounding rules: properties to be satisfied when rounding numbers during arithmetic
+and conversions
+-operations: arithmetic and other operations (such as trigonometric functions) on
+arithmetic formats
+-exception handling: indications of exceptional conditions (such as division by
+zero, overflow, etc.)
+
+IEEE is a format of representing floating point variables and arithmetic implementations.
+-In binary, the number 10100.110 could be represented as 1.0100110 × 24.
+S=Sign, E=Exponent, F=Fraction
+-Single Precision: SEEEEEEE EFFFFFFF FFFFFFFF FFFFFFFF
+
+Sign is 0 for positive number and 1 for negative numbers
+
+Exponent represents positive and negative numbers. A bias is in place (127) to the
+actual exponent, an exponent of 50 will be 177 (177-127=50).
+
+Mantissa is assumed to be 1, making it 1.f, where f is the field of fraction bits.

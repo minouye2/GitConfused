@@ -183,7 +183,7 @@ i2f: int to float
 https://docs.python.org/2/library/functions.html#float
 
 i2l: int to long
-https://docs.python.org/2/library/functions.html#float
+https://docs.python.org/2/library/functions.html#long
 
 More info on int, float, long
 https://docs.python.org/2/library/stdtypes.html#typesnumeric
@@ -191,6 +191,7 @@ https://docs.python.org/2/library/stdtypes.html#typesnumeric
 Difference between a decimal, double, and float
 http://net-informations.com/q/faq/float.html
 decimal - 128 bit
+long - 64 bit twos compliment
 double - 64 bit
 float - 32 bit
 
@@ -210,3 +211,68 @@ a Java double in Jython). If you need more precision, get NumPy and use its nump
 
 This raises the question of how float() saves its values.
 Does this mean that i2f and i2d are the same when read in python?
+
+*******************************************************************************
+3/31/19
+
+Plans for Monday meeting
+- Try to get down to just two branches (develop and master)
+- Remove extra files that are no longer being used
+- Consolidate methods
+
+Merged branches and are now down to just develop and master.  Discussed that 
+it was most efficient to start a sprint fresh so that we don't have people working
+on older branches that are not up to date with develop.  Branching after the start
+of the branch is still ok and encouraged so that people can test their changes
+safely before merging back into develop.
+
+Numpy was added to account for overflow.  What Numpy does is it converts a given
+integer and converts it into a two's compliment signed bit.  Doing this removed the
+need to run a mask on floats and shorts.  Within Numpy I ran the int function with its
+corresponding number of bits to convert the given int into a specific word length.
+16 for short, left as 32 for float, and 64 for double.
+
+********************************************************************************
+4/5/19
+
+Clarification on the differences of short, double, long, and float.
+
+https://www.b4x.com/android/forum/threads/short-vs-int-and-float-vs-double.16518/	
+
+    In most of the threads I read including mine, I seldom see Short or Float used to DIM variables. Instead I see Int and Double, particularly when SHORT and FLOAT are sufficient. In the scheme of things, devices have more memory and are faster. Is that the reason? or is it insignificant that it does not make an impact. Can someone give a reason that substantiates using the correct one.
+
+    Byte : 1byte signed: -128 to 127
+    Char : 2bytes unsigned: 0 to 65535 : not all values are valid Unicode code points
+    Short : 2bytes signed: -32768 to 32767
+    Int : 4bytes signed: -2147483648 to 2147483647
+    Long : 8bytes signed: -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807 (9.2...E+18)
+    Float : 4bytes +/- 3.4e +/- 38 (~7 digits)
+    Double : 8bytes +/- 1.7e +/- 308 (~15 digits
+
+    Mahares
+     
+Numpy functions
+
+https://docs.scipy.org/doc/numpy-1.13.0/user/basics.types.html
+
+bool_ 	Boolean (True or False) stored as a byte
+int_ 	Default integer type (same as C long; normally either int64 or int32)
+intc 	Identical to C int (normally int32 or int64)
+intp 	Integer used for indexing (same as C ssize_t; normally either int32 or int64)
+int8 	Byte (-128 to 127)
+int16 	Integer (-32768 to 32767)
+int32 	Integer (-2147483648 to 2147483647)
+int64 	Integer (-9223372036854775808 to 9223372036854775807)
+uint8 	Unsigned integer (0 to 255)
+uint16 	Unsigned integer (0 to 65535)
+uint32 	Unsigned integer (0 to 4294967295)
+uint64 	Unsigned integer (0 to 18446744073709551615)
+float_ 	Shorthand for float64.
+float16 	Half precision float: sign bit, 5 bits exponent, 10 bits mantissa
+float32 	Single precision float: sign bit, 8 bits exponent, 23 bits mantissa
+float64 	Double precision float: sign bit, 11 bits exponent, 52 bits mantissa
+complex_ 	Shorthand for complex128.
+complex64 	Complex number, represented by two 32-bit floats (real and imaginary components)
+complex128 	Complex number, represented by two 64-bit floats (real and imaginary components)
+
+Mostly used int for signed integers and uint for unsigned integers.

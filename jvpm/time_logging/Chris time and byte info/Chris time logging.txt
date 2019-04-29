@@ -63,6 +63,46 @@ stopped -5:16
 
 
 
+4/6/19 3:15 pm start-
+- starting to refactor cool translator
+- learned the difference between global variables and instance variables 3:39
+- hit a block and had to draw out my problem
+- end 7:30 pm
 
 
+4/7/19 11:30 start-
+- continuing to refactor 11:30
+- team meeting
+- 12:55 refactoring working but need rest of methods and getting
+hex bit in front of utf8 conversion
+- removed funky character in utf8 translation, so refactoring done need to build other methods 1:21
+- 1:40 call ended
+- added field reference and seems to be working with add two
+4/7/19 1:48 end
+
+
+4/7/19 6:45 pm trying to build more methods but I dont think im getting the correct constant pool for other class
+aside from add two and test
+4/7/19 7:05 pm
+
+4/9/19 5:45 pm start-
+- making more unit tests but dont know how get pull works
+- continuing to build a new pool pulling method (just need to skip index for double and long)
+- new pool reader works, going to test it on old code
+4/9/19 end
+
+
+4/10/19 12:42 pm start-
+- working on getting to opcodes
+- fixed the puller but now translator is messed up, but i am returning correct pool size now
+- well reader and translator now work
+- call with zack for an hour exlplaining how to get through the pool
+- going to integrate to dev
+- new code working need to fix tests 6:48
+- fixed tests for my new code 7:38
+- just need to merge it to dev
+- had some merge conflicts with zack
+4/10/19 -9: done
+
+4/19/19 2:07 - testing merge to see how bad it will be but looks ok, we just need tests
 

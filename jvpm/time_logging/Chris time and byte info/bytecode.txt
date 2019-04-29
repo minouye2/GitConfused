@@ -1,0 +1,706 @@
+Classfile /C:/Users/chris/PycharmProjects/GitConfused/jvpm/test.class
+  Last modified Feb 23, 2019; size 258 bytes
+  MD5 checksum 19da55219e27b0d7b103e25c0ab4c04d
+  Compiled from "test.java"
+
+0000-0010:  ca fe ba be-00 00 00 37-00 0f || 0a 00-03 00 0c || 07  .......7 ........    16
+0000-0020:  00 0d ||07 00-0e ||01 00 06-3c 69 6e 69-74 3e || 01 00  ........ <init>..   32
+0000-0030:  03 28 29 56-01 00 04 43-6f 64 65 01-00 0f 4c 69  .()V...C ode...Li          48
+0000-0040:  6e 65 4e 75-6d 62 65 72-54 61 62 6c-65 01 00 04  neNumber Table...          64
+0000-0050:  6d 61 69 6e-01 00 16 28-5b 4c 6a 61-76 61 2f 6c  main...( [Ljava/l          80
+0000-0060:  61 6e 67 2f-53 74 72 69-6e 67 3b 29-56 01 00 0a  ang/Stri ng;)V...          96
+0000-0070:  53 6f 75 72-63 65 46 69-6c 65 01 00-09 74 65 73  SourceFi le...tes          112
+0000-0080:  74 2e 6a 61-76 61 0c 00-04 00 05 01-00 04 74 65  t.java.. ......te          128
+0000-0090:  73 74 01 00-10 6a 61 76-61 2f 6c 61-6e 67 2f 4f  st...jav a/lang/O          144
+0000-00a0:  62 6a 65 63-74#00 20#00-02#00 03#00-00#00 00#00  bject... ........          160
+            MC#  AF _ NI  _ DI  _ AC  # ANI _   ALen   _(
+0000-00b0:  02#00 00_00-04_00 05_00-01_00 06@00-00 00 1d(00  //code attribute//         176
+            MS_ ML. _   C len.  _    Op Code.  _ eL. _ At l_
+0000-00c0:  01 00 01 00-00 00 05 2a-b7 00 01 b1-00 00 00 01  // code attribute//        192
+  LNtabl     ANI _   At L    _ lnTl_ s p _  ln
+0000-00d0:  00 07 00 00-00 06 00 01-00 00 00 01).               // code attribute//     208
+                                               -00 08 00 08N  ........ ........         208
+0000-00e0:  00 09D 00 01C-A00 06N00 00-00 1eL( 00 01-00 02 00 00  ........ ........
+                       op code       etL _ AtC _ nI  _
+0000-00f0:  00 06#04 3c-84 01 01 b1#00 00 00 01-00 07 00 00  ...<.... ........
+             L   _ tL  _ spc _ l # && ac  _ anI __ a len     _
+0000-0100:  00 06 00 01-00 00 00 01)-00 01C00 0aN-00 00 00 02L  ........ ........
+            source file index
+0000-0102:  00 0b
+
+{1: ['0a', '04', '0d'], 
+2: ['04', 'ba', '31', 'bb', 'cf'], 
+3: ['07', '0e'], 
+4: ['07', '0f'], 
+5: ['01', '00', '06', '3c', '69', '6e', '69', '74', '3e'], 
+6: ['01', '00', '03', '28', '29', '56'], 
+7: ['01', '00', '04', '43', '6f', '64', '65'], 
+8: ['01', '00', '0f', '4c', '69', '6e', '65', '4e', '75', '6d', '62', '65', '72', '54', '61', '62', '6c', '65'], 
+9:['01', '00', '04', '6d', '61', '69', '6e'], 
+10: ['01', '00', '16', '28', '5b', '4c', '6a', '61', '76', '61', '2f', '6c', '61', '6e', '67', '2f', '53', '74', 
+'72', '69', '6e', '67','3b','29', '56'], 
+11: ['01', '00', '0a', '53', '6f', '75', '72', '63', '65', '46', '69', '6c', '65'], 
+12: ['01', '00', '0e', '74', '65', '73', '74', '46', '6c', '6f', '61', '74', '2e', '6a', '61', '76','61'], 
+13: ['0c', '05', '06'], 
+14: ['01', '00', '09', '74', '65', '73', '74', '46', '6c', '6f', '61', '74'], 
+15: ['01', '00', '10', '6a', '61', '76', '61', '2f', '6c', '61', '6e', '67', '2f', '4f', '62', '6a', '65', '63', '74']}
+
+
+ 0                       1              2             3              4       5      6
+['0', 'java/lang/Object.<init>:()V', 'test', 'java/lang/Object', '<init>', '()V', 'Code',
+       7              8                 9                  10          11            12         13           14
+'LineNumberTable', 'main', '([Ljava/lang/String;)V', 'SourceFile', 'test.java', '<init>:()V', 'test', 'java/lang/Object']
+
+
+defaultdict(<class 'list'>, {0: ['00', '00', '00', '04', '00', '05', '00', '01',
+['00', '06', '00', '00', '00', '1d', '00', '01', '00', '01', '00', '00', '00', '05', '2a', 'b7', '00', '01', 'b1', '00', '00'],
+'00', '01', ['00', '07', '00', '00', '00', '06', '00', '01', '00', '00', '00', '01']]})             &&&&&&&&&&&& methods table after method call
+
+['00', '07', '00', '00', '00', '06', '00', '01', '00', '00', '00', '01']    line number  table
+
+class test
+  minor version: 0
+  major version: 54
+  flags: (0x0020) ACC_SUPER
+  this_class: #2                          // test
+  super_class: #3                         // java/lang/Object
+  interfaces: 0, fields: 0, methods: 2, attributes: 1
+Constant pool:
+   #1 = Methodref          #3.#12         // java/lang/Object."<init>":()V
+   #2 = Class              #13            // test
+   #3 = Class              #14            // java/lang/Object
+   #4 = Utf8               <init>
+   #5 = Utf8               ()V
+   #6 = Utf8               Code
+   #7 = Utf8               LineNumberTable
+   #8 = Utf8               main
+   #9 = Utf8               ([Ljava/lang/String;)V
+  #10 = Utf8               SourceFile
+  #11 = Utf8               test.java
+  #12 = NameAndType        #4:#5          // "<init>":()V
+  #13 = Utf8               test
+  #14 = Utf8               java/lang/Object
+{
+  test();
+    descriptor: ()V
+    flags: (0x0000)
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+         4: return
+      LineNumberTable:
+        line 1: 0
+
+  static void main(java.lang.String[]);
+    descriptor: ([Ljava/lang/String;)V
+    flags: (0x0008) ACC_STATIC
+    Code:
+      stack=1, locals=2, args_size=1
+         0: iconst_1
+         1: istore_1
+         2: iinc          1, 1
+         5: return
+      LineNumberTable:
+        line 1: 0
+}
+SourceFile: "test.java"
+
+
+
+
+
+
+
+
+
+
+
+****************************************************************************************************************************************
+file name: AddTwo.class
+mime type:
+
+0000-0010:  ca fe ba be-00 00 00 37-00 2b 0a 00-09 00 14 07  .......7 .+......
+0000-0020:  00 15 09 00-16 00 17 0a-00 02 00 18-0a 00 02 00  ........ ........
+0000-0030:  19 09 00 16-00 1a 0a 00-1b 00 1c 07-00 1d 07 00  ........ ........
+0000-0040:  1e 01 00 06-3c 69 6e 69-74 3e 01 00-03 28 29 56  ....<ini t>...()V
+0000-0050:  01 00 04 43-6f 64 65 01-00 0f 4c 69-6e 65 4e 75  ...Code. ..LineNu
+0000-0060:  6d 62 65 72-54 61 62 6c-65 01 00 04-6d 61 69 6e  mberTabl e...main
+0000-0070:  01 00 16 28-5b 4c 6a 61-76 61 2f 6c-61 6e 67 2f  ...([Lja va/lang/
+0000-0080:  53 74 72 69-6e 67 3b 29-56 01 00 0a-45 78 63 65  String;) V...Exce
+0000-0090:  70 74 69 6f-6e 73 07 00-1f 01 00 0a-53 6f 75 72  ptions.. ....Sour
+0000-00a0:  63 65 46 69-6c 65 01 00-0b 41 64 64-54 77 6f 2e  ceFile.. .AddTwo.
+0000-00b0:  6a 61 76 61-0c 00 0a 00-0b 01 00 11-6a 61 76 61  java.... ....java
+0000-00c0:  2f 75 74 69-6c 2f 53 63-61 6e 6e 65-72 07 00 20  /util/Sc anner...
+0000-00d0:  0c 00 21 00-22 0c 00 0a-00 23 0c 00-24 00 25 0c  ..!."... .#..$.%.
+0000-00e0:  00 26 00 27-07 00 28 0c-00 29 00 2a-01 00 06 41  .&.'..(. .).*...A
+0000-00f0:  64 64 54 77-6f 01 00 10-6a 61 76 61-2f 6c 61 6e  ddTwo... java/lan
+0000-0100:  67 2f 4f 62-6a 65 63 74-01 00 13 6a-61 76 61 2f  g/Object ...java/
+0000-0110:  69 6f 2f 49-4f 45 78 63-65 70 74 69-6f 6e 01 00  io/IOExc eption..
+0000-0120:  10 6a 61 76-61 2f 6c 61-6e 67 2f 53-79 73 74 65  .java/la ng/Syste
+0000-0130:  6d 01 00 02-69 6e 01 00-15 4c 6a 61-76 61 2f 69  m...in.. .Ljava/i
+0000-0140:  6f 2f 49 6e-70 75 74 53-74 72 65 61-6d 3b 01 00  o/InputS tream;..
+0000-0150:  18 28 4c 6a-61 76 61 2f-69 6f 2f 49-6e 70 75 74  .(Ljava/ io/Input
+0000-0160:  53 74 72 65-61 6d 3b 29-56 01 00 07-6e 65 78 74  Stream;) V...next
+0000-0170:  49 6e 74 01-00 03 28 29-49 01 00 03-6f 75 74 01  Int...() I...out.
+0000-0180:  00 15 4c 6a-61 76 61 2f-69 6f 2f 50-72 69 6e 74  ..Ljava/ io/Print
+0000-0190:  53 74 72 65-61 6d 3b 01-00 13 6a 61-76 61 2f 69  Stream;. ..java/i
+0000-01a0:  6f 2f 50 72-69 6e 74 53-74 72 65 61-6d 01 00 07  o/PrintS tream...
+                                                       A F
+0000-01b0:  70 72 69 6e-74 6c 6e 01-00 04 28 49-29 56#00 21#  println. ..(I)V.!
+             thi.  sup.  IC.   FC.    MC.   Af.  ni.    di
+0000-01c0:  00 08#00 09#00 00#00 00#00 02#00 01-00 0a 00 0b  ........ ........
+              AC.   aI.     a len. ( MS.   ML       C L
+0000-01d0:  00 01 00 0c-00 00 00 1d(00 01 00 01-00 00 00 05  ........ ........
+            $.  op code   $ e l   ac.    aI     line l. _
+0000-01e0:  2a b7 00 01-b1 00 00 00-01 00 0d 00-00 00 06 00  *....... ........
+            tl_  sp.   ln )2AF.   NI.   DI.   AC. _ NI
+0000-01f0:  01 00 00 00-01)00 09 00-0e 00 0f 00-02 00 0c 00  ........ ........
+             a len. (  MS   ML  _ code len  (
+0000-0200:  00 00 47 00-03 00 04 00-00 00 1f bb-00 02 59 b2  ..G..... ......Y. 13
+0000-0210:  00 03 b7 00-04 4c 2b b6-00 05 3d 2b-b6 00 05 3e  .....L+. ..=+...>
+                                         ) ETL   aC    Line number table
+0000-0220:  b2 00 06 1c-1d 60 b6 00-07 b1 00 00-00 01 00 0d  .....`.. ........
+               A len   _ l#L _           1           2
+0000-0230:  00 00 00 16-00 05 00 00-00 03 00 0b-00 04 00 10  ........ ........
+                 3           4     5     )  NI _    A len
+0000-0240:  00 05 00 15-00 06 00 1e-00 07 00 10-00 00 00 04  ........ ........
+              #e _ e I _   EEXXCCEEPPTTIIIIOONNNSSS
+0000-024e:  00 01 00 11-00 01 00 12-00 00 00 02-00 13        ........ ......
+
+
+
+Classfile /C:/Users/chris/PycharmProjects/GitConfusedFork/jvpm/AddTwo.class
+
+
+  Last modified Apr 7, 2019; size 590 bytes
+  MD5 checksum e4c1414fb6d5bc4bf5a6986b4f13fcbc
+  Compiled from "AddTwo.java"
+public class AddTwo
+  minor version: 0
+  major version: 55
+  flags: (0x0021) ACC_PUBLIC, ACC_SUPER
+  this_class: #8                          // AddTwo
+  super_class: #9                         // java/lang/Object
+  interfaces: 0, fields: 0, methods: 2, attributes: 1
+Constant pool:
+   #1 = Methodref          #9.#20         // java/lang/Object."<init>":()V
+   #2 = Class              #21            // java/util/Scanner
+   #3 = Fieldref           #22.#23        // java/lang/System.in:Ljava/io/InputStream;
+   #4 = Methodref          #2.#24         // java/util/Scanner."<init>":(Ljava/io/InputStream;)V
+   #5 = Methodref          #2.#25         // java/util/Scanner.nextInt:()I
+   #6 = Fieldref           #22.#26        // java/lang/System.out:Ljava/io/PrintStream;
+   #7 = Methodref          #27.#28        // java/io/PrintStream.println:(I)V
+   #8 = Class              #29            // AddTwo
+   #9 = Class              #30            // java/lang/Object
+  #10 = Utf8               <init>
+  #11 = Utf8               ()V
+  #12 = Utf8               Code
+  #13 = Utf8               LineNumberTable
+  #14 = Utf8               main
+  #15 = Utf8               ([Ljava/lang/String;)V
+  #16 = Utf8               Exceptions
+  #17 = Class              #31            // java/io/IOException
+  #18 = Utf8               SourceFile
+  #19 = Utf8               AddTwo.java
+  #20 = NameAndType        #10:#11        // "<init>":()V
+  #21 = Utf8               java/util/Scanner
+  #22 = Class              #32            // java/lang/System
+  #23 = NameAndType        #33:#34        // in:Ljava/io/InputStream;
+  #24 = NameAndType        #10:#35        // "<init>":(Ljava/io/InputStream;)V
+  #25 = NameAndType        #36:#37        // nextInt:()I
+  #26 = NameAndType        #38:#39        // out:Ljava/io/PrintStream;
+  #27 = Class              #40            // java/io/PrintStream
+  #28 = NameAndType        #41:#42        // println:(I)V
+  #29 = Utf8               AddTwo
+  #30 = Utf8               java/lang/Object
+  #31 = Utf8               java/io/IOException
+  #32 = Utf8               java/lang/System
+  #33 = Utf8               in
+  #34 = Utf8               Ljava/io/InputStream;
+  #35 = Utf8               (Ljava/io/InputStream;)V
+  #36 = Utf8               nextInt
+  #37 = Utf8               ()I
+  #38 = Utf8               out
+  #39 = Utf8               Ljava/io/PrintStream;
+  #40 = Utf8               java/io/PrintStream
+  #41 = Utf8               println
+  #42 = Utf8               (I)V
+{
+  public AddTwo();
+    descriptor: ()V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+         4: return
+      LineNumberTable:
+        line 1: 0
+
+  public static void main(java.lang.String[]) throws java.io.IOException;
+    descriptor: ([Ljava/lang/String;)V
+    flags: (0x0009) ACC_PUBLIC, ACC_STATIC
+    Code:
+      stack=3, locals=4, args_size=1
+         0: new           #2                  // class java/util/Scanner
+         3: dup
+         4: getstatic     #3                  // Field java/lang/System.in:Ljava/io/InputStream;
+         7: invokespecial #4                  // Method java/util/Scanner."<init>":(Ljava/io/InputStream;)V
+        10: astore_1
+        11: aload_1
+        12: invokevirtual #5                  // Method java/util/Scanner.nextInt:()I
+        15: istore_2
+        16: aload_1
+        17: invokevirtual #5                  // Method java/util/Scanner.nextInt:()I
+        20: istore_3
+        21: getstatic     #6                  // Field java/lang/System.out:Ljava/io/PrintStream;
+        24: iload_2
+        25: iload_3
+        26: iadd
+        27: invokevirtual #7                  // Method java/io/PrintStream.println:(I)V
+        30: return
+      LineNumberTable:
+        line 3: 0
+        line 4: 11
+        line 5: 16
+        line 6: 21
+        line 7: 30
+    Exceptions:
+      throws java.io.IOException
+}
+SourceFile: "AddTwo.java"
+
+
+**********************************************************************************************
+
+testSaveVar.class
+
+['0', 'java/lang/Object.<init>:()V', 'hello', None, '0', None, '0', 'java/lang/System.out:Ljava/io/PrintStream;', None, 'java/io
+/PrintStream.println:(Ljava/lang/String;)V', 'testSaveVar', 'java/lang/Object', '<init>', '()V', 'Code', 'LineNumberTable', 'Loc
+alVariableTable', 'this', 'LtestSaveVar;', 'main', '([Ljava/lang/String;)V', 'args', '[Ljava/lang/String;', 'myInt', 'I', 'myStr
+ing', 'Ljava/lang/String;', 'myLong', 'J', 'myDouble', 'D', 'SourceFile', 'testSaveVar.java', '<init>:()V', 'hello', 'java/lang/
+System', 'out:Ljava/io/PrintStream;', 'BootstrapMethods', None, '\x01 \x01 \x01 \x01', 'makeConcatWithConstants:(ILjava/lang/Str
+ing;JD)Ljava/lang/String;', 'java/io/PrintStream', 'println:(Ljava/lang/String;)V', 'testSaveVar', 'java/lang/Object', 'java/lan
+g/System', 'out', 'Ljava/io/PrintStream;', 'java/lang/invoke/StringConcatFactory.makeConcatWithConstants:(Ljava/lang/invoke/Meth
+odHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite
+;', '\x01 \x01 \x01 \x01', 'makeConcatWithConstants', '(ILjava/lang/String;JD)Ljava/lang/String;', 'java/io/PrintStream', 'print
+ln', '(Ljava/lang/String;)V', 'java/lang/invoke/StringConcatFactory', 'makeConcatWithConstants:(Ljava/lang/invoke/MethodHandles$
+Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;', 'java/
+lang/invoke/StringConcatFactory', 'java/lang/invoke/MethodHandles$Lookup', 'Lookup', 'InnerClasses', '(Ljava/lang/invoke/MethodH
+andles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;',
+ 'java/lang/invoke/MethodHandles', 'java/lang/invoke/MethodHandles$Lookup', 'java/lang/invoke/MethodHandles']
+
+
+0000-0010:  ca fe ba be 00 00 00 36-00 41  0a 00-0b 00 21   08  .......6 .A....!.
+0000-0020:  00 22   05 00-00 00 00 00-00 03 ea   06-3f d0 00 00  ."...... ....?...
+0000-0030:  00 00 00 00-09 00 23 00-24 12 00 00-00 28 0a 00  ......#. $....(..
+0000-0040:  29 00 2a 07-00 2b 07 00-2c 01 00 06-3c 69 6e 69  ).*..+.. ,...<ini
+0000-0050:  74 3e 01 00-03 28 29 56-01 00 04 43-6f 64 65 01  t>...()V ...Code.
+0000-0060:  00 0f 4c 69-6e 65 4e 75-6d 62 65 72-54 61 62 6c  ..LineNu mberTabl
+0000-0070:  65 01 00 12-4c 6f 63 61-6c 56 61 72-69 61 62 6c  e...Loca lVariabl
+0000-0080:  65 54 61 62-6c 65 01 00-04 74 68 69-73 01 00 0d  eTable.. .this...
+0000-0090:  4c 74 65 73-74 53 61 76-65 56 61 72-3b 01 00 04  LtestSav eVar;...
+0000-00a0:  6d 61 69 6e-01 00 16 28-5b 4c 6a 61-76 61 2f 6c  main...( [Ljava/l
+0000-00b0:  61 6e 67 2f-53 74 72 69-6e 67 3b 29-56 01 00 04  ang/Stri ng;)V...
+0000-00c0:  61 72 67 73-01 00 13 5b-4c 6a 61 76-61 2f 6c 61  args...[ Ljava/la
+0000-00d0:  6e 67 2f 53-74 72 69 6e-67 3b 01 00-05 6d 79 49  ng/Strin g;...myI
+0000-00e0:  6e 74 01 00-01 49 01 00-08 6d 79 53-74 72 69 6e  nt...I.. .myStrin
+0000-00f0:  67 01 00 12-4c 6a 61 76-61 2f 6c 61-6e 67 2f 53  g...Ljav a/lang/S
+0000-0100:  74 72 69 6e-67 3b 01 00-06 6d 79 4c-6f 6e 67 01  tring;.. .myLong.
+0000-0110:  00 01 4a 01-00 08 6d 79-44 6f 75 62-6c 65 01 00  ..J...my Double..
+0000-0120:  01 44 01 00-0a 53 6f 75-72 63 65 46-69 6c 65 01  .D...Sou rceFile.
+0000-0130:  00 10 74 65-73 74 53 61-76 65 56 61-72 2e 6a 61  ..testSa veVar.ja
+0000-0140:  76 61 0c 00-0c 00 0d 01-00 05 68 65-6c 6c 6f 07  va...... ..hello.
+0000-0150:  00 2d 0c 00-2e 00 2f 01-00 10 42 6f-6f 74 73 74  .-..../. ..Bootst
+0000-0160:  72 61 70 4d-65 74 68 6f-64 73 0f 06-00 30 08 00  rapMetho ds...0..
+0000-0170:  31 0c 00 32-00 33 07 00-34 0c 00 35-00 36 01 00  1..2.3.. 4..5.6..
+0000-0180:  0b 74 65 73-74 53 61 76-65 56 61 72-01 00 10 6a  .testSav eVar...j
+0000-0190:  61 76 61 2f-6c 61 6e 67-2f 4f 62 6a-65 63 74 01  ava/lang /Object.
+0000-01a0:  00 10 6a 61-76 61 2f 6c-61 6e 67 2f-53 79 73 74  ..java/l ang/Syst
+0000-01b0:  65 6d 01 00-03 6f 75 74-01 00 15 4c-6a 61 76 61  em...out ...Ljava
+0000-01c0:  2f 69 6f 2f-50 72 69 6e-74 53 74 72-65 61 6d 3b  /io/Prin tStream;
+0000-01d0:  0a 00 37 00-38 01 00 07-01 20 01 20-01 20 01 01  ..7.8... ........
+0000-01e0:  00 17 6d 61-6b 65 43 6f-6e 63 61 74-57 69 74 68  ..makeCo ncatWith
+0000-01f0:  43 6f 6e 73-74 61 6e 74-73 01 00 29-28 49 4c 6a  Constant s..)(ILj
+0000-0200:  61 76 61 2f-6c 61 6e 67-2f 53 74 72-69 6e 67 3b  ava/lang /String;
+0000-0210:  4a 44 29 4c-6a 61 76 61-2f 6c 61 6e-67 2f 53 74  JD)Ljava /lang/St
+0000-0220:  72 69 6e 67-3b 01 00 13-6a 61 76 61-2f 69 6f 2f  ring;... java/io/
+0000-0230:  50 72 69 6e-74 53 74 72-65 61 6d 01-00 07 70 72  PrintStr eam...pr
+0000-0240:  69 6e 74 6c-6e 01 00 15-28 4c 6a 61-76 61 2f 6c  intln... (Ljava/l
+0000-0250:  61 6e 67 2f-53 74 72 69-6e 67 3b 29-56 07 00 39  ang/Stri ng;)V..9
+0000-0260:  0c 00 32 00-3d 01 00 24-6a 61 76 61-2f 6c 61 6e  ..2.=..$ java/lan
+0000-0270:  67 2f 69 6e-76 6f 6b 65-2f 53 74 72-69 6e 67 43  g/invoke /StringC
+0000-0280:  6f 6e 63 61-74 46 61 63-74 6f 72 79-07 00 3f 01  oncatFac tory..?.
+0000-0290:  00 06 4c 6f-6f 6b 75 70-01 00 0c 49-6e 6e 65 72  ..Lookup ...Inner
+0000-02a0:  43 6c 61 73-73 65 73 01-00 98 28 4c-6a 61 76 61  Classes. ..(Ljava
+0000-02b0:  2f 6c 61 6e-67 2f 69 6e-76 6f 6b 65-2f 4d 65 74  /lang/in voke/Met
+0000-02c0:  68 6f 64 48-61 6e 64 6c-65 73 24 4c-6f 6f 6b 75  hodHandl es$Looku
+0000-02d0:  70 3b 4c 6a-61 76 61 2f-6c 61 6e 67-2f 53 74 72  p;Ljava/ lang/Str
+0000-02e0:  69 6e 67 3b-4c 6a 61 76-61 2f 6c 61-6e 67 2f 69  ing;Ljav a/lang/i
+0000-02f0:  6e 76 6f 6b-65 2f 4d 65-74 68 6f 64-54 79 70 65  nvoke/Me thodType
+0000-0300:  3b 4c 6a 61-76 61 2f 6c-61 6e 67 2f-53 74 72 69  ;Ljava/l ang/Stri
+0000-0310:  6e 67 3b 5b-4c 6a 61 76-61 2f 6c 61-6e 67 2f 4f  ng;[Ljav a/lang/O
+0000-0320:  62 6a 65 63-74 3b 29 4c-6a 61 76 61-2f 6c 61 6e  bject;)L java/lan
+0000-0330:  67 2f 69 6e-76 6f 6b 65-2f 43 61 6c-6c 53 69 74  g/invoke /CallSit
+0000-0340:  65 3b 07 00-40 01 00 25-6a 61 76 61-2f 6c 61 6e  e;..@..% java/lan
+0000-0350:  67 2f 69 6e-76 6f 6b 65-2f 4d 65 74-68 6f 64 48  g/invoke /MethodH
+0000-0360:  61 6e 64 6c-65 73 24 4c-6f 6f 6b 75-70 01 00 1e  andles$L ookup...
+0000-0370:  6a 61 76 61-2f 6c 61 6e-67 2f 69 6e-76 6f 6b 65  java/lan g/invoke
+                                                       AF
+0000-0380:  2f 4d 65 74-68 6f 64 48-61 6e 64 6c-65 73#00 21#  /MethodH andles.!
+            This   Sup   IC    IT    FC  (  AF   NI     DI
+0000-0390:  00 0a 00 0b-00 00 00 00-00 02 00 01-00 0c 00 0d  ........ ........
+              AC   ANI _  At len   (
+0000-03a0:  00 01 00 0e-00 00 00 2f-00 01 00 01-00 00 00 05  ......./ ........
+0000-03b0:  2a b7 00 01-b1 00 00 00-02 00 0f 00-00 00 06 00  *....... ........
+0000-03c0:  01 00 00 00-01 00 10 00-00 00 0c 00-01 00 00 00  ........ ........
+0000-03d0:  05 00 11 00*12 00 00 00-09*00 13 00-14 00 01 00  ........ ........
+0000-03e0:  0e 00 00 00-86 00 07 00-07 00 00 00-20&10&0a 3c  ........ .......<
+0000-03f0:  12 02 4d 14-00 03 42 14-00 05 39 05-b2 00 07 1b  ..M...B. ..9.....
+0000-0400:  2c 21 18 05-ba 00 08 00-00 b6 00 09-b1 00 00 00  ,!...... ........
+0000-0410:  02 00 0f 00-00 00 1a 00-06 00 00 00-05 00 03 00  ........ ........
+0000-0420:  06 00 06 00-07 00 0a 00-08 00 0f 00-0a 00 1f 00  ........ ........
+0000-0430:  0b 00   %10%00-00 00 34 00-05 00 00 00-20 00 15 00  13  ......4. ........
+0000-0440:  16 00 00 00-03 00 1d 00-17 00 18 00-01 00 06 00     ........ ........
+0000-0450:  1a 00 19 00-1a 00 02 00-0a 00 16 00-1b 00 1c 00     ........ ........
+0000-0460:  03 00 0f 00-11 00 1d 00-1e 00#      05 00-03 00 1f 00 52  ........ ........
+0000-0470:  00 00 02 00-20 00 3c 00-00 00 0a 00-01 00 3a 00  ......<. ......:.
+0000-0480:  3e 00 3b 00-19 00 25 00-00 00 08 00-01 00 26 00  >.;...%. ......&.
+0000-0483:  01 00 27                                         ..'
+
+
+
+Classfile /C:/Users/chris/PycharmProjects/GitConfusedFork/jvpm/testSaveVar.class
+  Last modified Apr 6, 2019; size 1155 bytes
+  MD5 checksum 9a0c3b364f8d860b3d396b836efb4f35
+  Compiled from "testSaveVar.java"
+public class testSaveVar
+  minor version: 0
+  major version: 54
+  flags: (0x0021) ACC_PUBLIC, ACC_SUPER
+  this_class: #10                         // testSaveVar
+  super_class: #11                        // java/lang/Object
+  interfaces: 0, fields: 0, methods: 2, attributes: 3
+Constant pool:
+   #1 = Methodref          #11.#33        // java/lang/Object."<init>":()V
+   #2 = String             #34            // hello
+   #3 = Long               1002l
+   #5 = Double             0.25d
+   #7 = Fieldref           #35.#36        // java/lang/System.out:Ljava/io/PrintStream;
+   #8 = InvokeDynamic      #0:#40         // #0:makeConcatWithConstants:(ILjava/lang/String;JD)Ljava/lang/String;
+   #9 = Methodref          #41.#42        // java/io/PrintStream.println:(Ljava/lang/String;)V
+  #10 = Class              #43            // testSaveVar
+  #11 = Class              #44            // java/lang/Object
+  #12 = Utf8               <init>
+  #13 = Utf8               ()V
+  #14 = Utf8               Code
+  #15 = Utf8               LineNumberTable
+  #16 = Utf8               LocalVariableTable
+  #17 = Utf8               this
+  #18 = Utf8               LtestSaveVar;
+  #19 = Utf8               main
+  #20 = Utf8               ([Ljava/lang/String;)V
+  #21 = Utf8               args
+  #22 = Utf8               [Ljava/lang/String;
+  #23 = Utf8               myInt
+  #24 = Utf8               I
+  #25 = Utf8               myString
+  #26 = Utf8               Ljava/lang/String;
+  #27 = Utf8               myLong
+  #28 = Utf8               J
+  #29 = Utf8               myDouble
+  #30 = Utf8               D
+  #31 = Utf8               SourceFile
+  #32 = Utf8               testSaveVar.java
+  #33 = NameAndType        #12:#13        // "<init>":()V
+  #34 = Utf8               hello
+  #35 = Class              #45            // java/lang/System
+  #36 = NameAndType        #46:#47        // out:Ljava/io/PrintStream;
+  #37 = Utf8               BootstrapMethods
+  #38 = MethodHandle       6:#48          // REF_invokeStatic java/lang/invoke/StringConcatFactory.makeConcatWithConstants:(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke
+/CallSite;
+  #39 = String             #49            // \u0001 \u0001 \u0001 \u0001
+  #40 = NameAndType        #50:#51        // makeConcatWithConstants:(ILjava/lang/String;JD)Ljava/lang/String;
+  #41 = Class              #52            // java/io/PrintStream
+  #42 = NameAndType        #53:#54        // println:(Ljava/lang/String;)V
+  #43 = Utf8               testSaveVar
+  #44 = Utf8               java/lang/Object
+  #45 = Utf8               java/lang/System
+  #46 = Utf8               out
+  #47 = Utf8               Ljava/io/PrintStream;
+  #48 = Methodref          #55.#56        // java/lang/invoke/StringConcatFactory.makeConcatWithConstants:(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;
+  #49 = Utf8               \u0001 \u0001 \u0001 \u0001
+  #50 = Utf8               makeConcatWithConstants
+  #51 = Utf8               (ILjava/lang/String;JD)Ljava/lang/String;
+  #52 = Utf8               java/io/PrintStream
+  #53 = Utf8               println
+  #54 = Utf8               (Ljava/lang/String;)V
+  #55 = Class              #57            // java/lang/invoke/StringConcatFactory
+  #56 = NameAndType        #50:#61        // makeConcatWithConstants:(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;
+  #57 = Utf8               java/lang/invoke/StringConcatFactory
+  #58 = Class              #63            // java/lang/invoke/MethodHandles$Lookup
+  #59 = Utf8               Lookup
+  #60 = Utf8               InnerClasses
+  #61 = Utf8               (Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;
+  #62 = Class              #64            // java/lang/invoke/MethodHandles
+  #63 = Utf8               java/lang/invoke/MethodHandles$Lookup
+  #64 = Utf8               java/lang/invoke/MethodHandles
+{
+  public testSaveVar();
+    descriptor: ()V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+         4: return
+      LineNumberTable:
+        line 1: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   LtestSaveVar;
+
+  public static void main(java.lang.String[]);
+    descriptor: ([Ljava/lang/String;)V
+    flags: (0x0009) ACC_PUBLIC, ACC_STATIC
+    Code:
+      stack=7, locals=7, args_size=1
+         0: bipush        10
+         2: istore_1
+         3: ldc           #2                  // String hello
+         5: astore_2
+         6: ldc2_w        #3                  // long 1002l
+         9: lstore_3
+        10: ldc2_w        #5                  // double 0.25d
+        13: dstore        5
+        15: getstatic     #7                  // Field java/lang/System.out:Ljava/io/PrintStream;
+        18: iload_1
+        19: aload_2
+        20: lload_3
+        21: dload         5
+        23: invokedynamic #8,  0              // InvokeDynamic #0:makeConcatWithConstants:(ILjava/lang/String;JD)Ljava/lang/String;
+        28: invokevirtual #9                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+        31: return
+      LineNumberTable:
+        line 5: 0
+        line 6: 3
+        line 7: 6
+        line 8: 10
+        line 10: 15
+        line 11: 31
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      32     0  args   [Ljava/lang/String;
+            3      29     1 myInt   I
+            6      26     2 myString   Ljava/lang/String;
+           10      22     3 myLong   J
+           15      17     5 myDouble   D
+}
+SourceFile: "testSaveVar.java"
+InnerClasses:
+  public static final #59= #58 of #62;    // Lookup=class java/lang/invoke/MethodHandles$Lookup of class java/lang/invoke/MethodHandles
+BootstrapMethods:
+  0: #38 REF_invokeStatic java/lang/invoke/StringConcatFactory.makeConcatWithConstants:(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;
+    Method arguments:
+      #39 \u0001 \u0001 \u0001 \u0001
+
+      Classfile /Users/zack/Documents/GitConfused/jvpm/javafiles/HelloWorld.class
+        Last modified Apr 15, 2019; size 426 bytes
+        MD5 checksum 4986ae80d34409a6287b36ff40672a21
+        Compiled from "HelloWorld.java"
+      public class HelloWorld
+        minor version: 0
+        major version: 55
+        flags: (0x0021) ACC_PUBLIC, ACC_SUPER
+        this_class: #5                          // HelloWorld
+        super_class: #6                         // java/lang/Object
+        interfaces: 0, fields: 0, methods: 2, attributes: 1
+      Constant pool:
+         #1 = Methodref          #6.#15         // java/lang/Object."<init>":()V
+         #2 = Fieldref           #16.#17        // java/lang/System.out:Ljava/io/PrintStream;
+         #3 = String             #18            // Hello World!
+         #4 = Methodref          #19.#20        // java/io/PrintStream.println:(Ljava/lang/String;)V
+         #5 = Class              #21            // HelloWorld
+         #6 = Class              #22            // java/lang/Object
+         #7 = Utf8               <init>
+         #8 = Utf8               ()V
+         #9 = Utf8               Code
+        #10 = Utf8               LineNumberTable
+        #11 = Utf8               main
+        #12 = Utf8               ([Ljava/lang/String;)V
+        #13 = Utf8               SourceFile
+        #14 = Utf8               HelloWorld.java
+        #15 = NameAndType        #7:#8          // "<init>":()V
+        #16 = Class              #23            // java/lang/System
+        #17 = NameAndType        #24:#25        // out:Ljava/io/PrintStream;
+        #18 = Utf8               Hello World!
+        #19 = Class              #26            // java/io/PrintStream
+        #20 = NameAndType        #27:#28        // println:(Ljava/lang/String;)V
+        #21 = Utf8               HelloWorld
+        #22 = Utf8               java/lang/Object
+        #23 = Utf8               java/lang/System
+        #24 = Utf8               out
+        #25 = Utf8               Ljava/io/PrintStream;
+        #26 = Utf8               java/io/PrintStream
+        #27 = Utf8               println
+        #28 = Utf8               (Ljava/lang/String;)V
+      {
+        public HelloWorld();
+          descriptor: ()V
+          flags: (0x0001) ACC_PUBLIC
+          Code:
+            stack=1, locals=1, args_size=1
+               0: aload_0
+               1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+               4: return
+            LineNumberTable:
+              line 1: 0
+
+        public static void main(java.lang.String[]);
+          descriptor: ([Ljava/lang/String;)V
+          flags: (0x0009) ACC_PUBLIC, ACC_STATIC
+          Code:
+            stack=2, locals=1, args_size=1
+               0: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+               3: ldc           #3                  // String Hello World!
+               5: invokevirtual #4                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+               8: return
+            LineNumberTable:
+              line 3: 0
+              line 4: 8
+      }
+      SourceFile: "HelloWorld.java"
+
+
+Hello World
+
+0000-0010:  ca fe ba be-00 00 00 37-00 1d 0a 00-06 00 0f 09  .......7 ........
+0000-0020:  00 10 00 11-08 00 12 0a-00 13 00 14-07 00 15 07  ........ ........
+0000-0030:  00 16 01 00-06 3c 69 6e-69 74 3e 01-00 03 28 29  .....<in it>...()
+0000-0040:  56 01 00 04-43 6f 64 65-01 00 0f 4c-69 6e 65 4e  V...Code ...LineN
+0000-0050:  75 6d 62 65-72 54 61 62-6c 65 01 00-04 6d 61 69  umberTab le...mai
+0000-0060:  6e 01 00 16-28 5b 4c 6a-61 76 61 2f-6c 61 6e 67  n...([Lj ava/lang
+0000-0070:  2f 53 74 72-69 6e 67 3b-29 56 01 00-0a 53 6f 75  /String; )V...Sou
+0000-0080:  72 63 65 46-69 6c 65 01-00 0f 48 65-6c 6c 6f 57  rceFile. ..HelloW
+0000-0090:  6f 72 6c 64-2e 6a 61 76-61 0c 00 07-00 08 07 00  orld.jav a.......
+0000-00a0:  17 0c 00 18-00 19 01 00-0c 48 65 6c-6c 6f 20 57  ........ .Hello.W
+0000-00b0:  6f 72 6c 64-21 07 00 1a-0c 00 1b 00-1c 01 00 0a  orld!... ........
+0000-00c0:  48 65 6c 6c-6f 57 6f 72-6c 64 01 00-10 6a 61 76  HelloWor ld...jav
+0000-00d0:  61 2f 6c 61-6e 67 2f 4f-62 6a 65 63-74 01 00 10  a/lang/O bject...
+0000-00e0:  6a 61 76 61-2f 6c 61 6e-67 2f 53 79-73 74 65 6d  java/lan g/System
+0000-00f0:  01 00 03 6f-75 74 01 00-15 4c 6a 61-76 61 2f 69  ...out.. .Ljava/i
+0000-0100:  6f 2f 50 72-69 6e 74 53-74 72 65 61-6d 3b 01 00  o/PrintS tream;..
+0000-0110:  13 6a 61 76-61 2f 69 6f-2f 50 72 69-6e 74 53 74  .java/io /PrintSt
+0000-0120:  72 65 61 6d-01 00 07 70-72 69 6e 74-6c 6e 01 00  ream...p rintln..
+0000-0130:  15 28 4c 6a-61 76 61 2f-6c 61 6e 67-2f 53 74 72  .(Ljava/ lang/Str
+0000-0140:  69 6e 67 3b-29 56 00 21-00 05 00 06-00 00 00 00  ing;)V.! ........
+0000-0150:  00 02 00 01-00 07 00 08-00 01 00 09-00 00 00 1d  ........ ........
+0000-0160:  00 01 00 01-00 00 00 05-2a b7 00 01-b1 00 00 00  ........ *.......
+0000-0170:  01 00 0a 00-00 00 06 00-01 00 00 00-01 00 09 00  ........ ........
+0000-0180:  0b 00 0c 00-01 00 09 00-00 00 25 00-02 00 01 00  ........ ..%.....
+0000-0190:  00 00 09 b2-00 02 12 03-b6 00 04 b1-00 00 00 01  ........ ........
+0000-01a0:  00 0a 00 00-00 0a 00 02-00 00 00 03-00 08 00 04  ........ ........
+0000-01aa:  00 01 00 0d-00 00 00 02-00 0e                    ........ ..
+
+pulled pool
+['0',
+'java/lang/Object.<init>:()V',
+'java/lang/System.out:Ljava/io/PrintStream;',
+'Hello World!',
+'java/io/PrintStream.println:(Ljava/lang/String;)V',
+'HelloWorld',
+'java/lang/Object',
+'<init>',
+'()V',
+'Code',
+'LineNumberTable',
+'main',
+'([Ljava/lang/String;)V',
+'SourceFile',
+'HelloWorld.java',
+'<init>:()V',
+'java/lang/System',
+'out:Ljava/io/PrintStream;',
+'Hello World!',
+'java/io/PrintStream',
+'println:(Ljava/lang/String;)V',
+'HelloWorld',
+'java/lang/Object',
+'java/lang/System',
+'out',
+'Ljava/io/PrintStream;',
+'java/io/PrintStream',
+'println',
+'(Ljava/lang/String;)V']
+
+pulled opcodes
+['2a', 'b7', '00', '01', 'b1', 'b2', '00', '02', '12', '03', 'b6', '00', '04', 'b1']    ** op codes **
+
+
+Classfile /C:/Users/chris/PycharmProjects/GitConfusedTeam/jvpm/javafiles/HelloWorld.class
+  Last modified Apr 8, 2019; size 426 bytes
+  MD5 checksum 4986ae80d34409a6287b36ff40672a21
+  Compiled from "HelloWorld.java"
+public class HelloWorld
+  minor version: 0
+  major version: 55
+  flags: (0x0021) ACC_PUBLIC, ACC_SUPER
+  this_class: #5                          // HelloWorld
+  super_class: #6                         // java/lang/Object
+  interfaces: 0, fields: 0, methods: 2, attributes: 1
+Constant pool:
+   #1 = Methodref          #6.#15         // java/lang/Object."<init>":()V
+   #2 = Fieldref           #16.#17        // java/lang/System.out:Ljava/io/PrintStream;
+   #3 = String             #18            // Hello World!
+   #4 = Methodref          #19.#20        // java/io/PrintStream.println:(Ljava/lang/String;)V
+   #5 = Class              #21            // HelloWorld
+   #6 = Class              #22            // java/lang/Object
+   #7 = Utf8               <init>
+   #8 = Utf8               ()V
+   #9 = Utf8               Code
+  #10 = Utf8               LineNumberTable
+  #11 = Utf8               main
+  #12 = Utf8               ([Ljava/lang/String;)V
+  #13 = Utf8               SourceFile
+  #14 = Utf8               HelloWorld.java
+  #15 = NameAndType        #7:#8          // "<init>":()V
+  #16 = Class              #23            // java/lang/System
+  #17 = NameAndType        #24:#25        // out:Ljava/io/PrintStream;
+  #18 = Utf8               Hello World!
+  #19 = Class              #26            // java/io/PrintStream
+  #20 = NameAndType        #27:#28        // println:(Ljava/lang/String;)V
+  #21 = Utf8               HelloWorld
+  #22 = Utf8               java/lang/Object
+  #23 = Utf8               java/lang/System
+  #24 = Utf8               out
+  #25 = Utf8               Ljava/io/PrintStream;
+  #26 = Utf8               java/io/PrintStream
+  #27 = Utf8               println
+  #28 = Utf8               (Ljava/lang/String;)V
+{
+  public HelloWorld();
+    descriptor: ()V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+         4: return
+      LineNumberTable:
+        line 1: 0
+
+  public static void main(java.lang.String[]);
+    descriptor: ([Ljava/lang/String;)V
+    flags: (0x0009) ACC_PUBLIC, ACC_STATIC
+    Code:
+      stack=2, locals=1, args_size=1
+         0: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+         3: ldc           #3                  // String Hello World!
+         5: invokevirtual #4                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+         8: return
+      LineNumberTable:
+        line 3: 0
+        line 4: 8
+}
+SourceFile: "HelloWorld.java"

@@ -1,5 +1,6 @@
-
 from collections import defaultdict
+
+# ****************************************************************************************
 
 class TagTranslate():
 
@@ -34,7 +35,7 @@ class TagTranslate():
         return "Interface Method Reference"
 
     def name_and_type_discriptor(self):
-        return "Name and Type Descriptor"
+        return "Name and Type"
 
     def method_handle(self):
         return "Method Handle"
@@ -54,7 +55,8 @@ class TagTranslate():
     def package(self):
         return "Package"
 
-
+# ****************************************************************************************
+    
     switcher = {
 
         "01": UTF_8_string,  # add two ints
@@ -77,8 +79,12 @@ class TagTranslate():
 
     }
 
+# ****************************************************************************************
+
     def token_dict(self, argument):
         method = TagTranslate.switcher.get(argument, "invalid")
         # execute function
         return method(self)
+    
+# ****************************************************************************************
 

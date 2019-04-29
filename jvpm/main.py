@@ -1,54 +1,60 @@
 import packages
+import argparse
+
 
 if '__main__' == __name__:                  #pragma: no cover
 
-    # **********************************************************************************************
 
-    print('\n1) ___Parse, pull, and assign Header bytecodes:___')
-    H = packages.jvpm_opcodes.HeaderClass()               #pragma: no cover
-    H.get_magic()                   #pragma: no cover
-    H.get_minor()                   #pragma: no cover
-    H.get_major()                   #pragma: no cover
-    print("Constant Pool Count: " + str(H.get_const_pool_count() - 1))
+    ap = argparse.ArgumentParser(description='This is a Java Virtual Machine.')
+    ap.add_argument("-f", "--file", required=False, help='Name of java class file with .class extension')
+    args=vars(ap.parse_args())
+    
+    if args['file']==None:
+        file = input("Select file to run: ")
+    else:
+        file = args['file']
+    
+    if not '.class' in file:
+        file += '.class'
+    
+    file_name = ("jvpm/javafiles/%s" % str(file))
+    header_class_object = packages.jvpm_opcodes.HeaderClass(name = file_name)               #pragma: no cover
+    print(header_class_object.get_magic())              #pragma: no cover
+    print(header_class_object.get_minor())              #pragma: no cover
+    print(header_class_object.get_major())               #pragma: no cover
 
-    # **********************************************************************************************
+    n = header_class_object.get_const_pool()
+    print(n)
+    p_translator = packages.pool_translate.PoolTranslate(n, header_class_object.skips_in_constant_pool, name = file_name)
 
-    print('\n2) ___Parse, pull, and assign method bytecodes to an array, search imported '
-          '\n  opcode dictionary for bytecode and pull opcode. If found, send opcode to'
-          '\n  imported method dictionary to implement the method:___\n')
+    pool = p_translator.translate_pool()
+    print(pool, "translated")
 
-    O = packages.jvpm_opcodes.OpCodes()
-    O.dict_search()
+    access_flags = header_class_object.get_access_flags()
+    print(access_flags, "   access flags")
 
-    # **********************************************************************************************
+    this_class = header_class_object.get_this_class()
+    print(this_class, "   this class")
 
-    print('\n3) ___Retrieve Constant Pool from .class, translate, and print to console:___')
+    super_class = header_class_object.get_super_class()
+    print(super_class, "   super class")
 
-    # print(H.get_const_pool())
+    d = header_class_object.get_interfaces_count()
+    print(d, "   interfaces count")
 
-    P = packages.pool_translate.PoolTranslate()                 #pragma: no cover
-    N = P.translate()                   #pragma: no cover
-    X = packages.pool_methods.TagTranslate()#pragma: no cover
-    print()                             #pragma: no cover
-    print(N)                            #pragma: no cover
-    print()                             #pragma: no cover
-    for key in N:                       #pragma: no cover
-        i = 1                            #pragma: no cover
-        if (N[key][0]) == "01":         #pragma: no cover
-            print(key, " ", X.token_dict(N[key][0]), "\t\t\t", N[key][len(N[key]) - 1])
-        else:
-            print(key, " ", X.token_dict(N[key][0]), "\t\t\t", N[key])
+    header_class_object.get_interface() # no method built yet but should just be index in constant pool
 
-    # **********************************************************************************************
+    e = header_class_object.get_field_count()
+    print(e, "   field count")
 
-    print('\n4) ___Print Hello World!:___\n')
+    header_class_object.get_field() # no method built yet but should just be variable table
 
+    opcodes = header_class_object.get_methods_count()
+    print(opcodes, " - methods count       \n ", header_class_object.integer_method_count, " -int meth count")
 
-
-    # **********************************************************************************************
-
-    print('\n5) ___Take input from the keyboard and add 2 numbers:___\n')
+    opcodes = header_class_object.get_methods(pool)
+    print("OpCodes:\n ", opcodes,    "** op codes **")
 
 
-
-    # **********************************************************************************************
+    dict_search_object = packages.jvpm_opcodes.OpCodes(opcodes, pool)
+    dict_search_object.dict_search()
