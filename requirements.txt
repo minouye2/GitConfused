@@ -1,0 +1,4 @@
+codecov
+numpy
+coverage
+bitstring
