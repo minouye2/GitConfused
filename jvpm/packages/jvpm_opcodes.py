@@ -59,7 +59,6 @@ class HeaderClass():
             if constant[0] == "06" or constant[0] == "05":
                 self.skips_in_constant_pool += 1
                 i += 1
-
             i += 1
         self.reader_location = self.bits.bytepos
         self.constant_pool = constants_pool
@@ -176,7 +175,6 @@ class HeaderClass():
         return class_file_item
 
 class OpCodes():
-
     """Parse Opcodes into an array from the .class file, search the external dictionary of
     opcodes, and implement the methods using the external dictionary of methods."""
     def __init__(self, opcode, constantpool):
