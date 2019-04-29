@@ -4,7 +4,7 @@ import binascii
 from collections import deque
 import numpy
 from . import jvpm_opcodes, pool_methods
-super_index = 0
+SUPER_INDEX = 0
 methodrefs = []
 cp_strings = []
 
@@ -31,7 +31,7 @@ class PoolTranslate:
 
         self.constant_pool_length = len(self.pulled_constant_pool)
         self.translated_pool = ["0"] * (self.constant_pool_length + self.skips_in_pool)
-        self.super_index = 0
+        self.SUPER_INDEX = 0
 
     def UTF_8_string(self, sub_list):  # 01
         #print(sub_list, "^^^^^^^^^^  sub list in utf   ^^^^^^^^^^")
