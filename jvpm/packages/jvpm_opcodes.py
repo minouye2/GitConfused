@@ -112,21 +112,30 @@ class HeaderClass():
         method_index = 0
         while method_index < self.integer_method_count:
             ################# access flags
-            self.methods_table[method_index].append(format((self.data[self.reader_location]), "02x"))
-            self.methods_table[method_index].append(format((self.data[self.reader_location + self.add_one_byte]), "02x"))
+            self.methods_table[method_index].append(format((self.data[self.reader_location]),
+                                                           "02x"))
+            self.methods_table[method_index].append(format((self.data[self.reader_location +
+                                                                      self.add_one_byte]), "02x"))
             self.reader_location += 2
             ################### name index
-            self.methods_table[method_index].append(format((self.data[self.reader_location]), "02x"))
-            self.methods_table[method_index].append(format((self.data[self.reader_location + self.add_one_byte]), "02x"))
+            self.methods_table[method_index].append(format((self.data[self.reader_location]),
+                                                           "02x"))
+            self.methods_table[method_index].append(format((self.data[self.reader_location +
+                                                                      self.add_one_byte]), "02x"))
             self.reader_location += 2
             ################# discriptor index
-            self.methods_table[method_index].append(format((self.data[self.reader_location]), "02x"))
-            self.methods_table[method_index].append(format((self.data[self.reader_location + self.add_one_byte]), "02x"))
+            self.methods_table[method_index].append(format((self.data[self.reader_location]),
+                                                           "02x"))
+            self.methods_table[method_index].append(format((self.data[self.reader_location +
+                                                                      self.add_one_byte]), "02x"))
             self.reader_location += 2
             ################## attribute count
-            self.methods_table[method_index].append(format((self.data[self.reader_location]), "02x"))
-            self.methods_table[method_index].append(format((self.data[self.reader_location + self.add_one_byte]), "02x"))
-            attribute_count = (self.data[self.reader_location]) + (self.data[self.reader_location + self.add_one_byte])
+            self.methods_table[method_index].append(format((self.data[self.reader_location]),
+                                                           "02x"))
+            self.methods_table[method_index].append(format((self.data[self.reader_location +
+                                                                      self.add_one_byte]), "02x"))
+            attribute_count = (self.data[self.reader_location]) +
+                              (self.data[self.reader_location + self.add_one_byte])
 
             self.reader_location += 2
             attribute_index = 0
