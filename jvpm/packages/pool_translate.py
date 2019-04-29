@@ -4,11 +4,11 @@ from collections import deque
 import numpy
 import struct
 import binascii
-
-
 super_index = 0
 methodrefs = []
 cp_strings = []
+
+# pylint: disable=C0111,R0201
 
 # ****************************************************************************************
 
