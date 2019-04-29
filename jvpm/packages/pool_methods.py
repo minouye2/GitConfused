@@ -1,5 +1,5 @@
 from collections import defaultdict
-disable = C0111
+pylint: disable=C0111
 
 # ****************************************************************************************
 
