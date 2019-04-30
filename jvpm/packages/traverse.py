@@ -1,17 +1,16 @@
 """import the unittest"""
 import unittest
-import stack
 import struct
-from CPInfo import ConstInfo, ConstTag
-from bitstring import ConstBitStream
-
-
 from collections import defaultdict
+from bitstring import ConstBitStream
+import stack
+from CPInfo import ConstInfo, ConstTag
+# pylint: disable=C0111, C0122, R0201
 
 class HeaderClass():
 
     def __init__(self):
-            self.data = ConstBitStream(filename = 'jvpm/javafiles/testSaveVar.class')
+        self.data = ConstBitStream(filename='jvpm/javafiles/testSaveVar.class')
 
     def get_magic(self):
         magic = self.data.read('hex:32')
@@ -25,7 +24,7 @@ class HeaderClass():
 
     def get_const_pool_count(self):
         return self.data.read('uint:16')
-    
+
     def get_const_pool(self):
         constants_pool = defaultdict(list)
         constants_pool[0].append("base")
@@ -47,7 +46,7 @@ class HeaderClass():
         print(constants_pool, "&&&&&&&&&&&     consts pool   &&&&&&&&&&&&&")
         return constants_pool
 
-    
+
 
     def get_access_flags(self):
         return self.data.read('uint:16')
@@ -60,11 +59,11 @@ class HeaderClass():
 
     def get_interfaces_count(self):
         return self.data.read('uint:16')
-    
-    
+
+
     def get_interfaces(self):
         interface_class_names = []
-        count = self.get_interfaces_count()
+
         return interface_class_names
 
     def get_fields_count(self):
@@ -91,17 +90,3 @@ if '__main__' == __name__:
     print(d.get_minor(), "minor%%%%")
     print(d.get_major(), "$$$$$$$$major")
     h = d.get_const_pool()
-
-    """
-    print(d.get_access_flags())
-    print(d.get_this_class())
-    print(d.get_super_class())
-    print(d.get_interfaces_count())
-    d.get_interfaces()
-    d.get_fields_count()
-    d.get_fields()
-    d.get_methods_count()
-    d.get_methods()
-    d.get_attributes_count()
-    d.get_attributes()
-    """

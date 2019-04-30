@@ -1064,4 +1064,3 @@ class TestAccessFlagTranslater(unittest.TestCase):
         self.assertEqual(a.translate_access_flag(1000), "ACC_SYNTHETIC")
         self.assertEqual(a.translate_access_flag(2000), "ACC_ANNOTATION")
         self.assertEqual(a.translate_access_flag(4000), "ACC_ENUM")
-

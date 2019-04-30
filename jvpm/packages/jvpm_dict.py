@@ -4,11 +4,10 @@ Method finds bytecode in dictionary and returns opcode
 """
 
 
-jvpm_dict = {
+JVPM_DICT = {
     "2a": "aload_0",
     "2b": "aload_1",
     "4c": "astore_1",
-    "59": "dup",
     "91": "i2b",             # convert an int into a byte
     "92": "i2c",             # convert an int into a character
     "87": "i2d",             # convert an int into a double
@@ -35,7 +34,6 @@ jvpm_dict = {
     "a4": "if_icmple",       # if value1 <= value 2, branch
     "a1": "if_icmplt",       # if value1 < value2, branch
     "a0": "if_icmpne",       # if value1 != value2, branch
-    "b6": "invokevirtual",    # gets method from constant pool
     "99": "ifeq",            # if value is 0, branch
     "9c": "ifge",            # if value >= 0, branch
     "9d": "ifgt",            # if value > 0, branch
@@ -50,13 +48,15 @@ jvpm_dict = {
     "1b": "iload_1",         # load an int value from local variable 1
     "1c": "iload_2",         # load an int value from local variable 2
     "1d": "iload_3",         # load an int value from local variable 3
-    "fe": "impdep1",         # reserved for implementation dependent operations, should not appear in any class
+    "fe": "impdep1",         # reserved for implementation dependent operations,
+                             # should not appear in any class
     "ff": "impdep2",         # reserved for implementation dependent operations, should not appear
     "68": "imul",            # multiply two integers
     "74": "ineg",            # negate int
     "c1": "instanceof",      # determines if objectref is of a given type
     "ba": "invokedynamic",   # invoke a dynamic method and puts the result on the stack
-    "b9": "invokeinterface", # invoke an interface method on object objectref and puts results on the stack
+    "b9": "invokeinterface", # invoke an interface method on object objectref and
+                             # puts results on the stack.
     "b7": "invokespecial",   # invoke instance method on objectref and puts result on the stack
     "b8": "invokestatic",    # invoke static method and puts result on the stack
     "b6": "invokevirtual",   # invoke virtual method on objectref and puts result on the stack
@@ -73,15 +73,48 @@ jvpm_dict = {
     "64": "isub",            # int subtract
     "7c": "iushr",           # int logical shift right
     "82": "ixor",            # xor
-    "59": "dup"              # duplicates the top of the stack
+    "59": "dup",             # duplicates the top of the stack
+    "8a": "l2d",
+    "89": "l2f",
+    "88": "l2i",
+    "61": "ladd",
+    "2f": "laload",
+    "7f": "land",
+    "50": "lastore",
+    "94": "lcmp",
+    "09": "lconst_0",
+    "0a": "lconst_1",
+    "12": "ldc",
+    "13": "ldc_w",
+    "14": "ldc2_w",
+    "6d": "ldiv",
+    "16": "lload",
+    "1e": "lload_0",
+    "1f": "lload_1",
+    "20": "lload_2",
+    "21": "lload_3",
+    "69": "lmul",
+    "75": "lneg",
+    "81": "lor",
+    "71": "lrem",
+    "ad": "lreturn",
+    "79": "lshl",
+    "7b": "lshr",
+    "37": "lstore",
+    "3f": "lstore_0",
+    "40": "lstore_1",
+    "41": "lstore_2",
+    "42": "lstore_3",
+    "65": "lsub",
+    "7d": "lushr",
+    "83": "lxor"
     }
-    
+
 def get_opcode(byte_code):
-    ''' Return opcode from given byte code, or an error message if not found '''
+    """ Return opcode from given byte code, or an error message if not found """
     try:
-        opcode = jvpm_dict[byte_code]
+        opcode = JVPM_DICT[byte_code]
     except KeyError:
         opcode = "Byte code not found!"
-    
-    return opcode
 
+    return opcode
