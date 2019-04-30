@@ -1,7 +1,10 @@
 """Read bit stream."""
 from collections import defaultdict
 from collections import deque
+
 from bitstring import ConstBitStream
+
+
 from . import jvpm_dict, jvpm_methods, read_attribute, CPInfo  # import external opcode dictionary
 
 # A deque of invokevirtual constants used for method calls from AddToo.class.
@@ -11,8 +14,9 @@ INVOKEVIRTUAL_CONST = deque(["5", "5", "7"])
 # ****************************************************************************************
 
 class HeaderClass():
+
     """Class that parses the header data from .class file and assigns values to variables."""
-    def __init__(self, name):
+    def __init__(self, name="jvpm/javafiles/test.class"):
         self.name = name
         self.bits = ConstBitStream(filename=name)
         with open(name, 'rb') as binary_file:
@@ -28,7 +32,7 @@ class HeaderClass():
             self.integer_interface_count = 0
             self.integer_field_count = 0
             self.integer_method_count = 0
-            self.methods_table = defaultdict(list)
+            self.methods_table =defaultdict(list)
             self.op_codes = []
             self.integer_attribute_count = 0
             self.field_count = 0
@@ -55,14 +59,18 @@ class HeaderClass():
         i = 1
         while i <= const_pool_count:
             constant = CPInfo.ConstInfo().read(self.bits)
-            constants_pool[i] = (constant)
+            constants_pool[i]=(constant)
             if constant[0] == "06" or constant[0] == "05":
                 self.skips_in_constant_pool += 1
                 i += 1
+
             i += 1
         self.reader_location = self.bits.bytepos
         self.constant_pool = constants_pool
+
         return constants_pool
+
+
 
     def get_access_flags(self):
         access_flag = self.class_file_item_reader_in_hex()
@@ -77,64 +85,56 @@ class HeaderClass():
         return super_class
 
     def get_interfaces_count(self):
-        interface_count = self.class_file_item_reader_in_hex()
         self.integer_interface_count = self.class_file_item_count_to_int()
+        interface_count = self.class_file_item_reader_in_hex()
         return interface_count
 
     def get_interface(self):
-        if self.integer_interface_count == 0:
-            print("interface table empty")
+        if (self.integer_interface_count == 0):
+            print ("interface table empty")
 
     def get_field_count(self):
-        field_count = self.class_file_item_reader_in_hex()
         self.integer_field_count = self.class_file_item_count_to_int()
+        field_count = self.class_file_item_reader_in_hex()
         self.field_count = field_count
         return field_count
 
     def get_field(self):
-        if self.integer_field_count == 0:
+        if (self.integer_field_count == 0):
             print("field table empty")
+
         else:
-            for i in self.field_count:
+            for i in range(self.field_count):
                 field = []
                 field.clear()
 
     def get_methods_count(self):
-        method_count = self.class_file_item_reader_in_hex()
         self.integer_method_count = self.class_file_item_count_to_int()
+        method_count = self.class_file_item_reader_in_hex()
         return method_count
 
     def get_methods(self, pool):
-        if self.integer_method_count == 0:
+        if (self.integer_method_count == 0):
             print("method table empty")
 
         method_index = 0
-        while method_index < self.integer_method_count:
+        while method_index <  self.integer_method_count:
             ################# access flags
-            self.methods_table[method_index].append(format((self.data[self.reader_location]),
-                                                           "02x"))
-            self.methods_table[method_index].append(format((self.data[self.reader_location +
-                                                                      self.add_one_byte]), "02x"))
+            self.methods_table[method_index].append(format((self.data[self.reader_location]), "02x"))
+            self.methods_table[method_index].append(format((self.data[self.reader_location + self.add_one_byte]), "02x"))
             self.reader_location += 2
             ################### name index
-            self.methods_table[method_index].append(format((self.data[self.reader_location]),
-                                                           "02x"))
-            self.methods_table[method_index].append(format((self.data[self.reader_location +
-                                                                      self.add_one_byte]), "02x"))
+            self.methods_table[method_index].append(format((self.data[self.reader_location]), "02x"))
+            self.methods_table[method_index].append(format((self.data[self.reader_location + self.add_one_byte]), "02x"))
             self.reader_location += 2
             ################# discriptor index
-            self.methods_table[method_index].append(format((self.data[self.reader_location]),
-                                                           "02x"))
-            self.methods_table[method_index].append(format((self.data[self.reader_location +
-                                                                      self.add_one_byte]), "02x"))
+            self.methods_table[method_index].append(format((self.data[self.reader_location]), "02x"))
+            self.methods_table[method_index].append(format((self.data[self.reader_location + self.add_one_byte]), "02x"))
             self.reader_location += 2
             ################## attribute count
-            self.methods_table[method_index].append(format((self.data[self.reader_location]),
-                                                           "02x"))
-            self.methods_table[method_index].append(format((self.data[self.reader_location +
-                                                                      self.add_one_byte]), "02x"))
-            attribute_count = (self.data[self.reader_location]) + (self.data[self.reader_location +
-                                                                             self.add_one_byte])
+            self.methods_table[method_index].append(format((self.data[self.reader_location]), "02x"))
+            self.methods_table[method_index].append(format((self.data[self.reader_location + self.add_one_byte]), "02x"))
+            attribute_count = (self.data[self.reader_location]) + (self.data[self.reader_location + self.add_one_byte])
 
             self.reader_location += 2
             attribute_index = 0
@@ -145,7 +145,7 @@ class HeaderClass():
                 atribute_reader = read_attribute.ReadAttribute()
                 returned_vals = atribute_reader.get_attribute(tag, self.methods_table, self.reader_location, self.data, self.op_codes, method_index, pool)
 
-                if isinstance(returned_vals, int):
+                if (isinstance(returned_vals, int)):
                     self.reader_location = returned_vals
                 else:
                     self.reader_location = int(returned_vals[0])
@@ -153,36 +153,45 @@ class HeaderClass():
 
                 attribute_index += 1
 
-            method_index += 1
+
+            method_index +=1
         return self.op_codes
-
-    def get_attribute_count(self):
-        attribute_count = self.class_file_item_reader_in_hex()
-        self.integer_attribute_count = self.class_file_item_count_to_int()
-        return attribute_count
-
-    def get_attribute_table(self):
-        atribute_reader = read_attribute.ReadAttribute()
 
     def class_file_item_count_to_int(self):
         count_as_int = (self.data[self.reader_location]) + (self.data[self.reader_location + self.add_one_byte])
         return count_as_int
 
     def class_file_item_reader_in_hex(self):
-        class_file_item = [format((self.data[self.reader_location]), "02x")]
+        class_file_item = [format((self.data[self.reader_location]) , "02x")]
         class_file_item.append(format((self.data[self.reader_location + self.add_one_byte]), "02x"))
         self.reader_location += 2
         return class_file_item
 
+
+
+
+
+
 class OpCodes():
+
     """Parse Opcodes into an array from the .class file, search the external dictionary of
     opcodes, and implement the methods using the external dictionary of methods."""
     def __init__(self, opcode, constantpool):
+        # Eventually we will acquire these values from the CP, but they are hardcoded for now.
+        #self.opcodes = ['2a', '59', '4c', '2b', 'b6', '3d', 'b6', '3e', '1c', '1d', '60', 'b6']
         self.constantpool = constantpool
         self.opcodes = opcode
 
+        """
+
+
+        METHOD GOES HERE TO FIND OPCODES FROM ANY .CLASS FILE AND SAVE TO self.opcodes LIST.
+
+
+
+        """
+
     def dict_search(self):
-        """dictionary search method."""
         jvpm_methods_object = jvpm_methods.OpCodeMethods()
 
         i = 0
@@ -194,5 +203,6 @@ class OpCodes():
                 i += 2
 
             if opcall != "Byte code not found!":
-                jvpm_methods_object.token_dict(opcall, self.opcodes, self.constantpool,)
+                jvpm_methods_object.token_dict(opcall,self.opcodes,self.constantpool,)
+
             i += 1
