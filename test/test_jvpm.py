@@ -23,11 +23,10 @@ class test_get_opcode(unittest.TestCase):
 class test_const_pool(unittest.TestCase):
     def test_const_pool(self):
 
-        x = packages.jvpm_opcodes.HeaderClass(name = "jvpm/javafiles/tester.class")
-        x.get_magic()  # pragma: no cover
-        x.get_minor()  # pragma: no cover
+        x = packages.jvpm_opcodes.HeaderClass(name= "jvpm/javafiles/tester.class")
+        x.get_magic()
+        x.get_minor()
         x.get_major()
-        #x.data = self.data
         n = x.get_const_pool()
 
         a = {
@@ -38,13 +37,13 @@ class test_const_pool(unittest.TestCase):
             4: ['01', '00', '03', '28', '29', '56'],
             5: ['01', '00', '04', '43', '6f', '64', '65'],
             6: ['01', '00', '0f', '4c', '69', '6e', '65', '4e', '75', '6d', '62', '65', '72', '54', '61', '62', '6c', '65'],
-            7: ['01', '00', '12', '4c', '6f', '63', '61', '6c', '56', '61', '72', '69', '61', '62', '6c', '65', '54', '61', '62', '6c', '65'],
+            7: ['01', '00', '12', '4c', '6f', '63', '61', '6c', '56', '61', '72', '69', '61', '62', '6c', '65', '54', '61','62', '6c', '65'],
             8: ['01', '00', '04', '74', '68', '69', '73'],
             9: ['01', '00', '08', '4c', '74', '65', '73', '74', '65', '72', '3b'],
             10: ['01', '00', '04', '6d', '61', '69', '6e'],
-            11: ['01', '00', '16', '28', '5b', '4c', '6a', '61', '76', '61', '2f', '6c', '61', '6e', '67', '2f', '53', '74', '72', '69', '6e', '67', '3b', '29', '56'],
+            11: ['01', '00', '16', '28', '5b', '4c', '6a', '61', '76', '61', '2f', '6c', '61', '6e', '67', '2f', '53', '74','72', '69', '6e', '67', '3b', '29', '56'],
             12: ['01', '00', '04', '61', '72', '67', '73'],
-            13: ['01', '00', '13', '5b', '4c', '6a', '61', '76', '61', '2f', '6c', '61', '6e', '67', '2f', '53', '74', '72', '69', '6e', '67', '3b'],
+            13: ['01', '00', '13', '5b', '4c', '6a', '61', '76', '61', '2f', '6c', '61', '6e', '67', '2f', '53', '74', '72','69', '6e', '67', '3b'],
             14: ['01', '00', '01', '61'],
             15: ['01', '00', '01', '49'],
             16: ['01', '00', '0a', '53', '6f', '75', '72', '63', '65', '46', '69', '6c', '65'],
@@ -78,15 +77,11 @@ class test_pool_translate1(unittest.TestCase):
         jvpm_opcodes_obj = packages.jvpm_opcodes.HeaderClass(name="jvpm/javafiles/testSaveVar.class")
         jvpm_opcodes_obj.get_magic()
         jvpm_opcodes_obj.get_minor()
-        jvpm_opcodes_obj.get_major()  # pragma: no cover
+        jvpm_opcodes_obj.get_major()
         n = jvpm_opcodes_obj.get_const_pool()
         y = packages.pool_translate.PoolTranslate(n, jvpm_opcodes_obj.skips_in_constant_pool,
                                                   name="jvpm/javafiles/testSaveVar.class")
 
-
-        # y.dictionary = x.get_const_pool()
-       # b = defaultdict(list)
-        #b = jvpm_opcodes_obj.get_const_pool()
         new_array = ["0",
                      "java/lang/Object.<init>:()V",
                      "hello",
@@ -277,86 +272,88 @@ class test_pool_translate1(unittest.TestCase):
 
 class test_pool_methods(unittest.TestCase):
     def test_tag_translate(self):
-        jvpm_opcodes_obj = packages.jvpm_opcodes.HeaderClass(name="jvpm/javafiles/tester.class")
-        jvpm_opcodes_obj.get_magic()
-        jvpm_opcodes_obj.get_minor()
-        jvpm_opcodes_obj.get_major()  # pragma: no cover
-        n = jvpm_opcodes_obj.get_const_pool()
-        x = packages.pool_translate.PoolTranslate(n, jvpm_opcodes_obj.skips_in_constant_pool,
+         jvpm_opcodes_obj = packages.jvpm_opcodes.HeaderClass(name="jvpm/javafiles/tester.class")
+         jvpm_opcodes_obj.get_magic()
+         jvpm_opcodes_obj.get_minor()
+         jvpm_opcodes_obj.get_major()
+         n = jvpm_opcodes_obj.get_const_pool()
+         x = packages.pool_translate.PoolTranslate(n, jvpm_opcodes_obj.skips_in_constant_pool,
                                                   name="jvpm/javafiles/tester.class")
-        new_dict = {
-            "1": "01",
-            "2": "03",
-            "3": "04",
-            "4": "05",
-            "5": "06",
-            "6": "07",
-            "7": "08",
-            "8": "09",
-            "9": "0a",
-            "10": "0b",
-            "11": "0c",
-            "12": "0f",
-            "13": "10",
-            "14": "11",
-            "15": "12",
-            "16": "13",
-            "17": "14"
-        }
-        #x = packages.pool_translate.PoolTranslate(name ="jvpm/javafiles/tester.class")
-        """
-        x.field_reference()
-        sys.stdout.assert_has_calls(
-            [call.write("Field Reference    4 bytes")]
-        )
-        """
-        x_list = [0]
-        x.interface_method_reference(x_list)
-        sys.stdout.assert_has_calls(
-            [call.write("Interface Method Reference    4 bytes")]
-        )
-        x.method_handle(x_list)
-        sys.stdout.assert_has_calls(
-            [call.write("Method Handle    3 bytes")]
-        )
-        x.method_type(x_list)
-        sys.stdout.assert_has_calls(
-            [call.write("Method Type    2 bytes")]
-        )
-        x.dynamic(x_list)
-        sys.stdout.assert_has_calls(
-            [call.write("Dynamic    4 bytes")]
-        )
-        x.invoke_dynamic(x_list)
-        sys.stdout.assert_has_calls(
-            [call.write("Invoke Dynamic    4 bytes")]
-        )
-        x.module(x_list)
-        sys.stdout.assert_has_calls(
-            [call.write("Module    2 bytes")]
-        )
-        x.package(x_list)
-        sys.stdout.assert_has_calls(
-            [call.write("Package    2 bytes")]
-        )
-        x = packages.pool_methods.TagTranslate()
-        self.assertEqual(x.token_dict(new_dict['1']), "UTF 8 String")
-        self.assertEqual(x.token_dict(new_dict['2']), "Integer")
-        self.assertEqual(x.token_dict(new_dict['3']), "Float")
-        self.assertEqual(x.token_dict(new_dict['4']), "Long")
-        self.assertEqual(x.token_dict(new_dict['5']), "Double")
-        self.assertEqual(x.token_dict(new_dict['6']), "Class Reference")
-        self.assertEqual(x.token_dict(new_dict['7']), "String Reference")
-        self.assertEqual(x.token_dict(new_dict['8']), "Field Reference")
-        self.assertEqual(x.token_dict(new_dict['9']), "Method Reference")
-        self.assertEqual(x.token_dict(new_dict['10']), "Interface Method Reference")
-        self.assertEqual(x.token_dict(new_dict['11']), "Name and Type")
-        self.assertEqual(x.token_dict(new_dict['12']), "Method Handle")
-        self.assertEqual(x.token_dict(new_dict['13']), "Method Type")
-        self.assertEqual(x.token_dict(new_dict['14']), "Dynamic")
-        self.assertEqual(x.token_dict(new_dict['15']), "Invoke Dynamic")
-        self.assertEqual(x.token_dict(new_dict['16']), "Module")
-        self.assertEqual(x.token_dict(new_dict['17']), "Package")
+         new_dict = {
+             "1": "01",
+             "2": "03",
+             "3": "04",
+             "4": "05",
+             "5": "06",
+             "6": "07",
+             "7": "08",
+             "8": "09",
+             "9": "0a",
+             "10": "0b",
+             "11": "0c",
+             "12": "0f",
+             "13": "10",
+             "14": "11",
+             "15": "12",
+             "16": "13",
+             "17": "14"
+         }
+
+         x_list = [0]
+
+
+
+         x.interface_method_reference(x_list)
+         sys.stdout.assert_has_calls(
+             [call.write("Interface Method Reference    4 bytes")]
+         )
+
+         x.method_handle(x_list)
+         sys.stdout.assert_has_calls(
+             [call.write("Method Handle    3 bytes")]
+         )
+
+         x.method_type(x_list)
+         sys.stdout.assert_has_calls(
+             [call.write("Method Type    2 bytes")]
+         )
+
+         x.dynamic(x_list)
+         sys.stdout.assert_has_calls(
+             [call.write("Dynamic    4 bytes")]
+         )
+         x.invoke_dynamic(x_list)
+         sys.stdout.assert_has_calls(
+             [call.write("Invoke Dynamic    4 bytes")]
+         )
+         x.module(x_list)
+         sys.stdout.assert_has_calls(
+             [call.write("Module    2 bytes")]
+         )
+         x.package(x_list)
+         sys.stdout.assert_has_calls(
+             [call.write("Package    2 bytes")]
+         )
+
+
+         x = packages.pool_methods.TagTranslate()
+         self.assertEqual(x.token_dict(new_dict['1']), "UTF 8 String")
+         self.assertEqual(x.token_dict(new_dict['2']), "Integer")
+         self.assertEqual(x.token_dict(new_dict['3']), "Float")
+         self.assertEqual(x.token_dict(new_dict['4']), "Long")
+         self.assertEqual(x.token_dict(new_dict['5']), "Double")
+         self.assertEqual(x.token_dict(new_dict['6']), "Class Reference")
+         self.assertEqual(x.token_dict(new_dict['7']), "String Reference")
+         self.assertEqual(x.token_dict(new_dict['8']), "Field Reference")
+         self.assertEqual(x.token_dict(new_dict['9']), "Method Reference")
+         self.assertEqual(x.token_dict(new_dict['10']), "Interface Method Reference")
+         self.assertEqual(x.token_dict(new_dict['11']), "Name and Type")
+         self.assertEqual(x.token_dict(new_dict['12']), "Method Handle")
+         self.assertEqual(x.token_dict(new_dict['13']), "Method Type")
+         self.assertEqual(x.token_dict(new_dict['14']), "Dynamic")
+         self.assertEqual(x.token_dict(new_dict['15']), "Invoke Dynamic")
+         self.assertEqual(x.token_dict(new_dict['16']), "Module")
+         self.assertEqual(x.token_dict(new_dict['17']), "Package")
 
 class test_stack(unittest.TestCase):
     def test_is_empty(self):
@@ -399,14 +396,13 @@ class test_stack(unittest.TestCase):
         s.pop()
         self.assertEqual(s.size(), 2)
 
-class Test_Op_Methods(unittest.TestCase):
+class test_op_methods(unittest.TestCase):
 
     def test_iadd(self):
         op = None
         con = None
         arg = None
         a = packages.jvpm_methods.OpCodeMethods()
-        # packages.jvpm_methods.S.push(1) EXAMPLE THAT I USED IN THE MAIN AND IT WORKS
         packages.jvpm_methods.S.push(2)
         packages.jvpm_methods.S.push(1)
         a.iadd(op, con, arg)
@@ -1021,7 +1017,7 @@ class test_pool_opcodes(unittest.TestCase):
 
     def test_get_opcodes(self):
         jvpm_opcodes_obj = packages.jvpm_opcodes.HeaderClass(name="jvpm/javafiles/AddTwo.class")
-        
+
         self.assertEqual(jvpm_opcodes_obj.get_magic(), "cafebabe")
         self.assertEqual(jvpm_opcodes_obj.get_minor(), "0000")
         self.assertEqual(jvpm_opcodes_obj.get_minor(), "0037")
@@ -1052,7 +1048,7 @@ class test_pool_opcodes(unittest.TestCase):
 class TestAccessFlagTranslater(unittest.TestCase):
     def test_translate_access_flag(self):
         a = packages.access_flag_translater_dictionary.AccessFlagTranslater()
-        
+
         self.assertEqual(a.translate_access_flag(1), "ACC_PUBLIC")
         self.assertEqual(a.translate_access_flag(2), "ACC_PRIVATE")
         self.assertEqual(a.translate_access_flag(4), "ACC_PROTECTED")
