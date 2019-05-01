@@ -1,5 +1,6 @@
 import packages
 import argparse
+from tkinter.filedialog import askopenfilename
 
 
 if '__main__' == __name__:                  #pragma: no cover
@@ -10,14 +11,13 @@ if '__main__' == __name__:                  #pragma: no cover
     args=vars(ap.parse_args())
 
     if args['file']==None:
-        file = input("Select file to run: ")
+        file_name = askopenfilename()
     else:
         file = args['file']
+        if not '.class' in file:
+            file += '.class'
+        file_name = ("jvpm/javafiles/%s" % str(file))
 
-    if not '.class' in file:
-        file += '.class'
-
-    file_name = ("jvpm/javafiles/%s" % str(file))
     header_class_object = packages.jvpm_opcodes.HeaderClass(name = file_name)
     print(header_class_object.get_magic())
     print(header_class_object.get_minor())
@@ -58,3 +58,4 @@ if '__main__' == __name__:                  #pragma: no cover
 
     dict_search_object = packages.jvpm_opcodes.OpCodes(opcodes, pool)
     dict_search_object.dict_search()
+
