@@ -15,9 +15,9 @@ class HeaderClass():
     """Class that parses the header data from .class file and assigns values to variables."""
     def __init__(self, name="jvpm/javafiles/test.class"):
         self.name = name
-        self.bits = ConstBitStream(filename=name)
         with open(name, 'rb') as binary_file:
             self.data = binary_file.read()
+            self.bits = ConstBitStream(self.data)
             self.temp_2 = defaultdict(list)
             self.constant_pool = defaultdict(list)
             self.constant_pool_byte_size = 0
